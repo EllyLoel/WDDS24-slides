@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Base.astro';
+import Controls from '../components/Controls.astro';
+import { getCollection } from 'astro:content';
+
+export interface Props {
+	title: string;
+	animation?: 'page' | 'element' | string;
+}
+
+const { title, animation } = Astro.props;
+
+const slides = await getCollection('slides');
+const currentSlideIndex = slides.findIndex(
+	(slide) => `/slides/${slide.slug}` === Astro.url.pathname
+);
+const prevSlide =
+	currentSlideIndex <= 0 ? null : slides.at(currentSlideIndex - 1);
+const nextSlide =
+	currentSlideIndex >= slides.length ? null : slides.at(currentSlideIndex + 1);
+---
+
+<Layout title={title} animation={animation}>
+	<slot />
+
+	<Controls
+		prevHref={prevSlide ? `/slides/${prevSlide.slug}` : null}
+		nextHref={nextSlide ? `/slides/${nextSlide.slug}` : null}
+	/>
+</Layout>
+
+<script is:inline define:vars={{ slides }}>
+	switch (performance.getEntriesByType('navigation')[0].type) {
+		case 'reload':
+			document.documentElement.dataset.viewTransitionDirection = 'reload';
+			break;
+		case 'back_forward': {
+			const prev = sessionStorage.getItem('prev-url');
+			document.documentElement.dataset.viewTransitionDirection =
+				document.referrer === prev ? 'forward' : 'back';
+			break;
+		}
+		default:
+			document.documentElement.dataset.viewTransitionDirection = 'forward';
+	}
+
+	sessionStorage.setItem('prev-url', location.href);
+
+	const bc = new BroadcastChannel('slides');
+	bc.postMessage({ location: location.href });
+	bc.addEventListener('message', (event) => {
+		if (event.data.location && event.data.location !== Astro.url.href) {
+			location = event.data.location;
+		}
+		if (event.data.slide) {
+			location = `/slides/${slides[event.data.slide - 1].slug}`;
+		}
+	});
+</script>
+
+<style is:global>
+	body {
+		display: grid;
+	}
+
+	body > * {
+		grid-area: 1 / 1;
+	}
+</style>

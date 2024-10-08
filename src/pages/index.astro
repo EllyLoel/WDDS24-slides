@@ -1,0 +1,141 @@
+---
+import Layout from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const title = 'Presenter view';
+
+const slides = await getCollection('slides');
+
+const renderedSlides = await Promise.all(
+	slides.map(async (slide) => {
+		const { Content } = await slide.render();
+		return { Content };
+	})
+);
+---
+
+<Layout title={title}>
+	<main>
+		<header>
+			<h1>{title}</h1>
+		</header>
+
+		<article>
+			{renderedSlides.map(({ Content }) => <Content />)}
+		</article>
+
+		<form>
+			<fieldset>
+				<legend>Slide controls</legend>
+				<button type="button" id="first-slide-button">
+					<span class="sr-only">First slide</span>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+						<!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+						<path
+							d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160zm352-160l-160 160c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L301.3 256 438.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0z"
+						>
+						</path>
+					</svg>
+				</button>
+				<button type="button" id="previous-slide-button">
+					<span class="sr-only">Previous slide</span>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+						<!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+						<path
+							d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+						>
+						</path>
+					</svg>
+				</button>
+				<button type="button" id="next-slide-button">
+					<span class="sr-only">Next slide</span>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+						<!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+						<path
+							d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+						>
+						</path>
+					</svg>
+				</button>
+				<button type="button" id="last-slide-button">
+					<span class="sr-only">Last slide</span>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+						<!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+						<path
+							d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z"
+						>
+						</path>
+					</svg>
+				</button>
+			</fieldset>
+		</form>
+	</main>
+</Layout>
+
+<script is:inline define:vars={{ slides }}>
+	const firstSlideButton = document.getElementById('first-slide-button');
+	const previousSlideButton = document.getElementById('previous-slide-button');
+	const nextSlideButton = document.getElementById('next-slide-button');
+	const lastSlideButton = document.getElementById('last-slide-button');
+
+	const bc = new BroadcastChannel('slides');
+	let currentSlideIndex = 1;
+
+	bc.postMessage({ slide: currentSlideIndex });
+	bc.addEventListener('message', (event) => {
+		if (!event.data.location) return;
+		const url = new URL(event.data.location);
+		for (const slide of slides) {
+			if (slide.url !== url.pathname) return;
+			currentSlideIndex = slides.indexOf(slide) + 1;
+		}
+	});
+
+	firstSlideButton.addEventListener('click', (event) => {
+		changeSlide(1);
+	});
+
+	previousSlideButton.addEventListener('click', (event) => {
+		if (currentSlideIndex <= 1) return;
+		changeSlide(currentSlideIndex - 1);
+	});
+
+	nextSlideButton.addEventListener('click', (event) => {
+		if (currentSlideIndex >= slides.length) return;
+		changeSlide(currentSlideIndex + 1);
+	});
+
+	lastSlideButton.addEventListener('click', (event) => {
+		changeSlide(slides.length);
+	});
+
+	window.addEventListener('keydown', (event) => {
+		if (event.key === 'Home') {
+			changeSlide(1);
+		}
+		if (event.key === 'ArrowLeft' || event.key === 'PageUp') {
+			if (currentSlideIndex <= 1) return;
+			changeSlide(currentSlideIndex - 1);
+		}
+		if (event.key === 'ArrowRight' || event.key === 'PageDown') {
+			if (currentSlideIndex >= slides.length) return;
+			changeSlide(currentSlideIndex + 1);
+		}
+		if (event.key === 'End') {
+			changeSlide(slides.length);
+		}
+	});
+
+	const changeSlide = (newSlideIndex) => {
+		if (newSlideIndex < 1 || newSlideIndex > slides.length) return;
+		currentSlideIndex = newSlideIndex;
+		bc.postMessage({ slide: currentSlideIndex });
+	};
+</script>
+
+<style>
+	svg {
+		block-size: 1em;
+		inline-size: 1em;
+	}
+</style>

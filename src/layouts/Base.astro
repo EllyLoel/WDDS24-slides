@@ -1,0 +1,23 @@
+---
+import '../styles/index.css';
+
+export interface Props {
+	title: string;
+	animation?: 'page' | 'element' | string;
+}
+
+const { title, animation = 'element' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" data-view-transition={animation}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
