@@ -12,7 +12,7 @@ const { title, animation } = Astro.props;
 
 const slides = await getCollection('slides');
 const currentSlideIndex = slides.findIndex(
-	(slide) => `/slides/${slide.slug}` === Astro.url.pathname
+	(slide) => `/slides/${slide.slug}/` === Astro.url.pathname
 );
 const prevSlide =
 	currentSlideIndex <= 0 ? null : slides.at(currentSlideIndex - 1);
@@ -26,8 +26,8 @@ const nextSlide =
 	</article>
 
 	<Controls
-		prevHref={prevSlide ? `/slides/${prevSlide.slug}` : null}
-		nextHref={nextSlide ? `/slides/${nextSlide.slug}` : null}
+		prevHref={prevSlide ? `/slides/${prevSlide.slug}/` : null}
+		nextHref={nextSlide ? `/slides/${nextSlide.slug}/` : null}
 	/>
 </Layout>
 
@@ -55,7 +55,7 @@ const nextSlide =
 			location = event.data.location;
 		}
 		if (event.data.slide) {
-			location = `/slides/${slides[event.data.slide - 1].slug}`;
+			location = `/slides/${slides[event.data.slide - 1].slug}/`;
 		}
 	});
 </script>
