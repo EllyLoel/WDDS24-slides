@@ -3,11 +3,26 @@ main {
 	place-items: center;
 	place-self: center;
 	gap: var(--size-3);
-	text-align: center;
+
+	> article {
+		inline-size: 100%;
+		display: grid;
+		gap: 1rem;
+		padding-inline: 1rem;
+	}
 }
 
-main ol {
-	text-align: start;
+.slide {
 	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 	gap: var(--size-3);
+
+	.slide-content {
+		box-shadow: var(--shadow-4);
+		border: var(--border-size-1) solid var(--surface-2);
+		border-radius: var(--radius-conditional-2);
+		padding-inline: var(--size-4);
+		padding-block: var(--size-3);
+		aspect-ratio: var(--ratio-widescreen);
+	}
 }

@@ -1,10 +1,9 @@
 @import 'transition-style';
 
-html:not([data-view-transition-direction="reload"]) {
+html:not([data-view-transition-direction='reload']) {
 	&[data-view-transition='page'] {
 		&::view-transition-new(root) {
-			animation: circle-in-hesitate 1s ease
-				forwards;
+			animation: circle-in-hesitate 1s ease forwards;
 		}
 
 		&::view-transition-old(root) {

@@ -9,7 +9,7 @@ const { prevHref, nextHref } = Astro.props;
 
 <nav class="controls">
 	{prevHref && (<a href=`${prevHref}`>
-		<span class="sr-only">Previous slide</span>
+		<span class="visually-hidden">Previous slide</span>
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
 			<!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
 			<path
@@ -19,7 +19,7 @@ const { prevHref, nextHref } = Astro.props;
 		</svg>
 	</a>)}
 	{nextHref && (<a href=`${nextHref}`>
-		<span class="sr-only">Next slide</span>
+		<span class="visually-hidden">Next slide</span>
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
 			<!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
 			<path

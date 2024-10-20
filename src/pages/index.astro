@@ -9,7 +9,8 @@ const slides = await getCollection('slides');
 const renderedSlides = await Promise.all(
 	slides.map(async (slide) => {
 		const { Content } = await slide.render();
-		return { Content };
+		const speakerNotes = slide.data.speakerNotes;
+		return { Content, speakerNotes };
 	})
 );
 ---
@@ -21,14 +22,23 @@ const renderedSlides = await Promise.all(
 		</header>
 
 		<article>
-			{renderedSlides.map(({ Content }) => <Content />)}
+			{renderedSlides.map(({ Content, speakerNotes }, index) => (
+				<section class={`slide slide-${index+1}`}>
+					<div class="slide-content">
+						<Content />
+					</div>
+					<div class="speaker-notes">
+						{ speakerNotes }
+					</div>
+				</section>
+			))}
 		</article>
 
 		<form>
 			<fieldset>
 				<legend>Slide controls</legend>
 				<button type="button" id="first-slide-button">
-					<span class="sr-only">First slide</span>
+					<span class="visually-hidden">First slide</span>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 						<!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
 						<path
@@ -38,7 +48,7 @@ const renderedSlides = await Promise.all(
 					</svg>
 				</button>
 				<button type="button" id="previous-slide-button">
-					<span class="sr-only">Previous slide</span>
+					<span class="visually-hidden">Previous slide</span>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
 						<!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
 						<path
@@ -48,7 +58,7 @@ const renderedSlides = await Promise.all(
 					</svg>
 				</button>
 				<button type="button" id="next-slide-button">
-					<span class="sr-only">Next slide</span>
+					<span class="visually-hidden">Next slide</span>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
 						<!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
 						<path
@@ -58,7 +68,7 @@ const renderedSlides = await Promise.all(
 					</svg>
 				</button>
 				<button type="button" id="last-slide-button">
-					<span class="sr-only">Last slide</span>
+					<span class="visually-hidden">Last slide</span>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 						<!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
 						<path
@@ -134,8 +144,8 @@ const renderedSlides = await Promise.all(
 </script>
 
 <style>
-	svg {
-		block-size: 1em;
-		inline-size: 1em;
+	form {
+		position: fixed;
+		inset: 1rem 1rem auto auto;
 	}
 </style>
