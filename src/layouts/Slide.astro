@@ -21,7 +21,9 @@ const nextSlide =
 ---
 
 <Layout title={title} animation={animation}>
-	<slot />
+	<article>
+		<slot />
+	</article>
 
 	<Controls
 		prevHref={prevSlide ? `/slides/${prevSlide.slug}` : null}
@@ -65,5 +67,9 @@ const nextSlide =
 
 	body > * {
 		grid-area: 1 / 1;
+	}
+
+	article {
+		padding: var(--size-fluid-3);
 	}
 </style>

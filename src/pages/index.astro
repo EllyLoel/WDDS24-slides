@@ -23,7 +23,7 @@ const renderedSlides = await Promise.all(
 
 		<article>
 			{renderedSlides.map(({ Content, speakerNotes }, index) => (
-				<section class={`slide slide-${index+1}`}>
+				<section id={`slide-${index+1}`} class={`slide slide-${index+1}`}>
 					<div class="slide-content">
 						<Content />
 					</div>
@@ -37,46 +37,49 @@ const renderedSlides = await Promise.all(
 		<form>
 			<fieldset>
 				<legend>Slide controls</legend>
-				<button type="button" id="first-slide-button">
-					<span class="visually-hidden">First slide</span>
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-						<!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-						<path
-							d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160zm352-160l-160 160c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L301.3 256 438.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0z"
-						>
-						</path>
-					</svg>
-				</button>
-				<button type="button" id="previous-slide-button">
-					<span class="visually-hidden">Previous slide</span>
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-						<!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-						<path
-							d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
-						>
-						</path>
-					</svg>
-				</button>
-				<button type="button" id="next-slide-button">
-					<span class="visually-hidden">Next slide</span>
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-						<!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-						<path
-							d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
-						>
-						</path>
-					</svg>
-				</button>
-				<button type="button" id="last-slide-button">
-					<span class="visually-hidden">Last slide</span>
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-						<!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-						<path
-							d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z"
-						>
-						</path>
-					</svg>
-				</button>
+				<div>
+					<button type="button" id="first-slide-button">
+						<span class="visually-hidden">First slide</span>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+							<!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+							<path
+								d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160zm352-160l-160 160c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L301.3 256 438.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0z"
+							>
+							</path>
+						</svg>
+					</button>
+					<button type="button" id="previous-slide-button">
+						<span class="visually-hidden">Previous slide</span>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+							<!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+							<path
+								d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+							>
+							</path>
+						</svg>
+					</button>
+					<div id="slide-indicator">1</div>
+					<button type="button" id="next-slide-button">
+						<span class="visually-hidden">Next slide</span>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+							<!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+							<path
+								d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+							>
+							</path>
+						</svg>
+					</button>
+					<button type="button" id="last-slide-button">
+						<span class="visually-hidden">Last slide</span>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+							<!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+							<path
+								d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z"
+							>
+							</path>
+						</svg>
+					</button>
+				</div>
 			</fieldset>
 		</form>
 	</main>
@@ -85,6 +88,7 @@ const renderedSlides = await Promise.all(
 <script is:inline define:vars={{ slides }}>
 	const firstSlideButton = document.getElementById('first-slide-button');
 	const previousSlideButton = document.getElementById('previous-slide-button');
+	const slideIndicator = document.getElementById('slide-indicator');
 	const nextSlideButton = document.getElementById('next-slide-button');
 	const lastSlideButton = document.getElementById('last-slide-button');
 
@@ -139,13 +143,63 @@ const renderedSlides = await Promise.all(
 	const changeSlide = (newSlideIndex) => {
 		if (newSlideIndex < 1 || newSlideIndex > slides.length) return;
 		currentSlideIndex = newSlideIndex;
+		slideIndicator.textContent = currentSlideIndex;
+		navigation.navigate(`#slide-${currentSlideIndex}`);
 		bc.postMessage({ slide: currentSlideIndex });
 	};
 </script>
 
 <style>
+	html {
+		scroll-padding: 1rem;
+	}
+
 	form {
 		position: fixed;
-		inset: 1rem 1rem auto auto;
+		inset: var(--size-3) var(--size-3) auto auto;
+		background-color: var(--surface-1);
+		border-radius: var(--radius-2);
+		box-shadow: var(--shadow-4);
+		border: var(--border-size-1) solid var(--surface-2);
+		padding-block: var(--size-2);
+		padding-inline: var(--size-2);
+
+		> fieldset {
+			border: none;
+			padding: 0;
+
+			> legend {
+				padding: 0;
+				font-weight: var(--font-weight-7);
+				line-height: var(--font-lineheight-1);
+				margin-block-end: var(--size-1);
+			}
+
+			> div {
+				display: flex;
+				place-items: center;
+				gap: var(--size-1);
+
+				> div {
+					aspect-ratio: var(--ratio-square);
+					inline-size: calc(var(--size-1) * 2 + var(--size-3));
+					text-align: center;
+					font-weight: var(--font-weight-7);
+				}
+
+				> button {
+					padding: var(--size-1);
+					background: none;
+
+					> svg {
+						fill: currentColor;
+						block-size: var(--size-3);
+						inline-size: var(--size-3);
+						aspect-ratio: var(--ratio-square);
+					}
+				}
+
+			}
+		}
 	}
 </style>
