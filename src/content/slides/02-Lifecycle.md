@@ -1,0 +1,58 @@
+---
+title: The Lifecycle of a <em>Cross</em> Document View Transition
+---
+
+<script type="module" async src="/scaler.js" ></script>
+
+<style>
+	spec-scaler {
+		max-block-size: 65svb;
+		display: block;
+		margin-inline: auto;
+	}
+
+	.spec-slide-controls {
+		margin-block-start: var(--size-3);
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+	}
+</style>
+
+<div id="phases-diagram">
+	<spec-scaler canvasheight="1080" canvaswidth="1920" style="aspect-ratio: 1920/1080">
+		<iframe
+			src="/cross-document-phases.html"
+			style="inline-size: 100%; block-size: 100%;"
+		></iframe>
+	</spec-scaler> 
+	<div class="spec-slide-controls">
+		<button disabled>Step backward</button>
+		<button>Step forward</button>
+	</div>
+</div>
+
+<script type="module">
+const root = document.querySelector('#phases-diagram');
+const [previous, next] = root.querySelectorAll('.spec-slide-controls button');
+const iframe = root.querySelector('iframe');
+
+next.disabled = false;
+
+const updateButtons = (slide) => {
+	next.disabled = !slide.hasNext;
+	previous.disabled = !slide.hasPrevious;
+};
+
+next.addEventListener('click', async () => {
+	const slide = iframe.contentDocument.querySelector('spec-slide');
+	await slide.next();
+	updateButtons(slide);
+});
+
+previous.addEventListener('click', async () => {
+	const slide = iframe.contentDocument.querySelector('spec-slide');
+	await slide.previous();
+	updateButtons(slide);
+});
+</script>

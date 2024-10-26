@@ -30,3 +30,22 @@
 html {
 	background-color: var(--surface-1);
 }
+
+button {
+	padding: var(--size-1) var(--size-2);
+	border-radius: var(--radius-2);
+	border: var(--border-size-2) solid currentColor;
+
+	&:disabled {
+		border-style: dashed;
+		cursor: not-allowed;
+	}
+}
+
+h1 {
+	max-inline-size: none;
+
+	em {
+		color: var(--brand);
+	}
+}

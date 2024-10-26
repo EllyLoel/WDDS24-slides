@@ -15,6 +15,6 @@ const { Content } = await entry.render();
 ---
 
 <Layout title={entry.data.title}>
-	<h1>{entry.data.title}</h1>
+	<h1 set:html={entry.data.title} />
 	<Content />
 </Layout>
