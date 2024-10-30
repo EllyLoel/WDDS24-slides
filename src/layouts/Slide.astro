@@ -21,33 +21,18 @@ const nextSlide =
 ---
 
 <Layout title={title} animation={animation}>
-	<article>
+	<main>
 		<slot />
-	</article>
-
-	<Controls
+	</main>
+	<footer>
+		<Controls
 		prevHref={prevSlide ? `/slides/${prevSlide.slug}/` : null}
 		nextHref={nextSlide ? `/slides/${nextSlide.slug}/` : null}
-	/>
+		/>
+	</footer>
 </Layout>
 
 <script is:inline define:vars={{ slides }}>
-	switch (performance.getEntriesByType('navigation')[0].type) {
-		case 'reload':
-			document.documentElement.dataset.viewTransitionDirection = 'reload';
-			break;
-		case 'back_forward': {
-			const prev = sessionStorage.getItem('prev-url');
-			document.documentElement.dataset.viewTransitionDirection =
-				document.referrer === prev ? 'forward' : 'back';
-			break;
-		}
-		default:
-			document.documentElement.dataset.viewTransitionDirection = 'forward';
-	}
-
-	sessionStorage.setItem('prev-url', location.href);
-
 	const bc = new BroadcastChannel('slides');
 	bc.postMessage({ location: location.href });
 	bc.addEventListener('message', (event) => {
@@ -69,8 +54,16 @@ const nextSlide =
 		grid-area: 1 / 1;
 	}
 
-	article {
+	main {
+		display: grid;
+		place-content: center;
+		text-align: center;
+		gap: var(--size-8);
 		padding: var(--size-fluid-3);
 		max-inline-size: 100svi;
+	}
+
+	footer {
+		place-self: end;
 	}
 </style>

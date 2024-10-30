@@ -1,51 +1,49 @@
-@import 'open-props/style';
-@import 'open-props/normalize';
-@import 'open-props/colors-hd';
-@import 'open-props/gray-hd';
+@layer frameworks, base, overrides;
 
-@import 'slides.css';
-@import 'typography.css';
-@import 'code.css';
-@import 'transitions.css';
-@import 'utilities.css';
+@import 'open-props/style' layer(frameworks);
+@import 'open-props/normalize' layer(frameworks);
+@import 'open-props/colors-hd' layer(frameworks);
+@import 'open-props/gray-hd' layer(frameworks);
 
-@view-transition {
-	navigation: auto;
-}
+@import 'slides.css' layer(base);
+@import 'typography.css' layer(base);
+@import 'code.css' layer(base);
+@import 'transitions.css' layer(base);
+@import 'utilities.css' layer(base);
 
-:root {
-	--brand: light-dark(color(display-p3 1 0 1), color(display-p3 0 1 0.75));
-	--gray-chroma: 0.01;
-	--gray-hue: 270;
+@import 'overrides.css' layer(overrides);
 
-	--surface-1: light-dark(var(--gray-0), var(--gray-15));
-	--surface-2: light-dark(var(--gray-2), var(--gray-14));
-	--surface-3: light-dark(var(--gray-3), var(--gray-10));
-	--surface-4: light-dark(var(--gray-4), var(--gray-9));
-
-	--text-1: light-dark(var(--gray-14), var(--gray-1));
-	--text-2: light-dark(var(--gray-11), var(--teal-1));
-}
-
-html {
-	background-color: var(--surface-1);
-}
-
-button {
-	padding: var(--size-1) var(--size-2);
-	border-radius: var(--radius-2);
-	border: var(--border-size-2) solid currentColor;
-
-	&:disabled {
-		border-style: dashed;
-		cursor: not-allowed;
+@layer base {
+	@view-transition {
+		navigation: auto;
 	}
-}
 
-h1 {
-	max-inline-size: none;
+	:root {
+		--brand: light-dark(color(display-p3 1 0 1), color(display-p3 0 1 0.75));
+		--gray-chroma: 0.01;
+		--gray-hue: 270;
 
-	em {
-		color: var(--brand);
+		--surface-1: light-dark(var(--gray-0), var(--gray-15));
+		--surface-2: light-dark(var(--gray-2), var(--gray-14));
+		--surface-3: light-dark(var(--gray-3), var(--gray-10));
+		--surface-4: light-dark(var(--gray-4), var(--gray-9));
+
+		--text-1: light-dark(var(--gray-14), var(--gray-1));
+		--text-2: light-dark(var(--gray-11), var(--teal-1));
+	}
+
+	html {
+		background-color: var(--surface-1);
+	}
+
+	button {
+		padding: var(--size-1) var(--size-2);
+		border-radius: var(--radius-2);
+		border: var(--border-size-2) solid currentColor;
+
+		&:disabled {
+			border-style: dashed;
+			cursor: not-allowed;
+		}
 	}
 }

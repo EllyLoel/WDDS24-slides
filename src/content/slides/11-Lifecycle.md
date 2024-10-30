@@ -1,12 +1,12 @@
 ---
-title: The Lifecycle of a <em>Same</em> Document View Transition
+title: The Lifecycle of a <em>Cross</em> Document View Transition
 ---
 
-<script type="module" async src="/scaler.js" ></script>
+<script type="module" async src="/scaler.js"></script>
 
 <style>
 	spec-scaler {
-		max-block-size: 65svb;
+		max-block-size: 60svb;
 		display: block;
 		margin-inline: auto;
 	}
@@ -16,13 +16,17 @@ title: The Lifecycle of a <em>Same</em> Document View Transition
 		display: flex;
 		align-items: center;
 		justify-content: space-evenly;
+
+		:not(.slide-content) > #phases-diagram > & {
+			font-size: var(--font-size-5);
+		}
 	}
 </style>
 
 <div id="phases-diagram">
 	<spec-scaler canvasheight="1080" canvaswidth="1920" style="aspect-ratio: 1920/1080">
 		<iframe
-			src="/same-document-phases.html"
+			src="/cross-document-phases.html"
 			style="inline-size: 100%; block-size: 100%;"
 		></iframe>
 	</spec-scaler> 

@@ -12,6 +12,12 @@
   "dependencies": {
     "astro": "^4.16.6",
     "open-props": "^1.7.7",
+    "sanitize-html": "^2.13.1",
     "transition-style": "^0.1.3"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "open-props": "patches/open-props.patch"
+    }
   }
 }

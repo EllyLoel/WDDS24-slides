@@ -9,8 +9,9 @@ const slides = await getCollection('slides');
 const renderedSlides = await Promise.all(
 	slides.map(async (slide) => {
 		const { Content } = await slide.render();
+		const title = slide.data.title;
 		const speakerNotes = slide.data.speakerNotes;
-		return { Content, speakerNotes };
+		return { Content, title, speakerNotes };
 	})
 );
 ---
@@ -22,9 +23,10 @@ const renderedSlides = await Promise.all(
 		</header>
 
 		<article>
-			{renderedSlides.map(({ Content, speakerNotes }, index) => (
+			{renderedSlides.map(({ Content, title, speakerNotes }, index) => (
 				<section id={`slide-${index+1}`} class={`slide slide-${index+1}`}>
 					<div class="slide-content">
+						<h2 set:html={title} />
 						<Content />
 					</div>
 					<div class="speaker-notes">
@@ -152,6 +154,19 @@ const renderedSlides = await Promise.all(
 <style>
 	html {
 		scroll-padding: 1rem;
+	}
+
+	main {
+		display: grid;
+		place-items: center;
+		gap: var(--size-3);
+
+		> article {
+			inline-size: 100%;
+			display: grid;
+			gap: 1rem;
+			padding-inline: 1rem;
+		}
 	}
 
 	form {
