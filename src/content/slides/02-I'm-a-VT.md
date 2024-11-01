@@ -1,5 +1,5 @@
 ---
-title: <button type="button" id="im-a-vt-button">I'm a <em>View Transition</em></button>
+title: <button type="button" id="im-a-vt-button">I'm a <em>View Transition</em>!</button>
 ---
 
 <script type="module">
@@ -22,6 +22,8 @@ title: <button type="button" id="im-a-vt-button">I'm a <em>View Transition</em><
 	});
 
 	const hidePopover = () => {
+		if (!imAVTPopover.matches(":popover-open")) return;
+
 		// Fallback for browsers that don't support this API:
 		if (!document.startViewTransition) {
 			imAVTPopover.hidePopover();
@@ -47,14 +49,39 @@ title: <button type="button" id="im-a-vt-button">I'm a <em>View Transition</em><
 
 <style>
 	#im-a-vt {
-		block-size: 50vmin;
-		inline-size: 50vmin;
+		block-size: 55vmin;
+		border: none;
+		border-radius: var(--radius-round);
+		box-shadow: var(--shadow-6);
+		inline-size: 55vmin;
+		padding: var(--size-8);
 		place-self: center;
-		place-content: center;
+		place-items: center;
 		view-transition-name: im-a-vt-popover;
+
+		& img {
+			block-size: 100%;
+			inline-size: 100%;
+		}
+	}
+
+	::view-transition-old(im-a-vt-popover):only-child {
+		animation:
+			var(--animation-scale-up),
+			var(--animation-fade-out);
+		animation-timing-function: var(--ease-in-out-5);
+	}
+
+	::view-transition-new(im-a-vt-popover):only-child {
+		animation: 
+			var(--animation-scale-down) reverse backwards,
+			circle-in-center 0.5s var(--ease-in-5) normal forwards;
 	}
 </style>
 
 <div id="im-a-vt" popover="manual">
-	<strong class="h2">Wow!<br>That's <em>amazing</em>!</strong>
+	<picture>
+		<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f92f/512.webp" type="image/webp">
+		<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f92f/512.gif" alt="🤯" width="160" height="160">
+	</picture>
 </div>
