@@ -5,6 +5,7 @@
 @import 'open-props/colors-hd' layer(frameworks);
 @import 'open-props/gray-hd' layer(frameworks);
 
+@import 'slide.css' layer(base);
 @import 'slides.css' layer(base);
 @import 'typography.css' layer(base);
 @import 'code.css' layer(base);
@@ -30,6 +31,12 @@
 
 		--text-1: light-dark(var(--gray-14), var(--gray-1));
 		--text-2: light-dark(var(--gray-11), var(--teal-1));
+	}
+
+	:focus-visible {
+		outline-style: solid;
+		outline-width: 0.125em;
+		outline-offset: 0.3125em;
 	}
 
 	html {

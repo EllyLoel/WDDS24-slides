@@ -1,14 +1,3 @@
 ---
-title: <button type="button" popovertarget="im-also-a-vt">I'm also a View Transition</button>
+title: <a href="../04-im-also-a-vt/">I'm <em>also</em> a View Transition!</a>
 ---
-
-<script type="module">
-
-</script>
-
-<style>
-</style>
-
-<dialog id="im-also-a-vt" popover>
-	Wow! That's also amazing!
-</dialog>

@@ -1,6 +1,10 @@
 @import 'transition-style';
 
-html:not(:active-view-transition-type(reload)) {
+html {
+	&[data-view-transition='none'] {
+		view-transition-name: none;
+	}
+
 	&[data-view-transition='page'] {
 		&::view-transition-new(root) {
 			animation: circle-in-hesitate 1s ease forwards;
@@ -23,39 +27,41 @@ html:not(:active-view-transition-type(reload)) {
 			view-transition-name: content;
 		}
 
-		& h2:nth-child(1 of main h2) {
+		& h2:nth-child(1 of .content h2),
+		& .h2:nth-child(1 of .content .h2) {
 			view-transition-name: slide-subtitle;
 		}
 
-		& h2:nth-child(2 of main h2) {
+		& h2:nth-child(2 of .content h2),
+		& .h2:nth-child(2 of .content .h2) {
 			view-transition-name: slide-subtitle-two;
 		}
 
-		& pre:nth-child(1 of main pre) {
+		& pre:nth-child(1 of .content pre) {
 			view-transition-name: first-snippet;
 		}
 
-		& pre:nth-child(2 of main pre) {
+		& pre:nth-child(2 of .content pre) {
 			view-transition-name: second-snippet;
 		}
 
-		& p:nth-child(1 of main p) {
+		& p:nth-child(1 of .content p) {
 			view-transition-name: first-paragraph;
 		}
 
-		& p:nth-child(2 of main p) {
+		& p:nth-child(2 of .content p) {
 			view-transition-name: second-paragraph;
 		}
 
-		& a:nth-child(1 of main > a) {
+		& a:nth-child(1 of .content a) {
 			view-transition-name: first-link;
 		}
 
-		& a:nth-child(2 of main > a) {
+		& a:nth-child(2 of .content a) {
 			view-transition-name: second-link;
 		}
 
-		& main > picture {
+		& .content picture {
 			view-transition-name: slide-emoji;
 		}
 

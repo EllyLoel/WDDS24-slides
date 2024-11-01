@@ -6,6 +6,10 @@ h1,
 	& em {
 		color: var(--brand);
 	}
+
+	& :focus-visible {
+		outline-width: 0.0625em;
+	}
 }
 
 h2,
@@ -63,11 +67,14 @@ h6,
 	& em {
 		color: var(--brand);
 	}
+
+	& :focus-visible {
+		outline-width: 0.0625em;
+	}
 }
 
 @media (width > 720px) {
 	p,
-	a,
 	blockquote,
 	li,
 	pre {
@@ -76,20 +83,18 @@ h6,
 }
 
 a {
-	margin-inline: calc(var(--size-3) * -1);
 	padding-inline: var(--size-3);
-}
+	text-decoration: underline;
+	text-decoration-color: var(--brand);
+	text-underline-offset: 0.1em;
 
-a:hover {
-	text-decoration-color: color-mix(in srgb, var(--brand), transparent 50%);
-}
+	:not(h1) > & {
+		margin-inline: calc(var(--size-3) * -1);
+	}
 
-a:visited {
-	color: var(--brand);
-}
-
-a:focus {
-	border-radius: var(--radius-round);
+	&:focus {
+		border-radius: var(--radius-round);
+	}
 }
 
 aside {

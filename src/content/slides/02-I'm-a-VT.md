@@ -1,5 +1,6 @@
 ---
 title: <button type="button" id="im-a-vt-button">I'm a <em>View Transition</em>!</button>
+animation: none
 ---
 
 <script type="module">
