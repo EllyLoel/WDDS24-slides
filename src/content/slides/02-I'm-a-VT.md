@@ -1,5 +1,5 @@
 ---
-title: <button type="button" id="im-a-vt-button">I'm a View Transition</button>
+title: <button type="button" id="im-a-vt-button">I'm a <em>View Transition</em></button>
 ---
 
 <script type="module">
@@ -50,10 +50,11 @@ title: <button type="button" id="im-a-vt-button">I'm a View Transition</button>
 		block-size: 50vmin;
 		inline-size: 50vmin;
 		place-self: center;
+		place-content: center;
 		view-transition-name: im-a-vt-popover;
 	}
 </style>
 
 <div id="im-a-vt" popover="manual">
-	Wow! That's amazing!
+	<strong class="h2">Wow!<br>That's <em>amazing</em>!</strong>
 </div>
