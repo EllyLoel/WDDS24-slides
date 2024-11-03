@@ -18,8 +18,38 @@ const safeTitle = sanitizeHtml(title, {
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>🎞️</text></svg>">
 		<title>{safeTitle}</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>🎞️</text></svg>">
+		<script type="module">
+			const extractPageIndexFromPath = (pathname) => /\d{2}/.exec(pathname)[0];
+
+			const determineTransitionType = (fromNavigationEntry, toNavigationEntry) => {
+				const currentURL = new URL(fromNavigationEntry.url);
+				const destinationURL = new URL(toNavigationEntry.url);
+
+				const currentPathname = currentURL.pathname;
+				const destinationPathname = destinationURL.pathname;
+
+				const currentPageIndex = extractPageIndexFromPath(currentPathname);
+				const destinationPageIndex = extractPageIndexFromPath(destinationPathname);
+
+				if (currentPageIndex > destinationPageIndex) {
+					return 'backwards';
+				}
+				if (currentPageIndex < destinationPageIndex) {
+					return 'forwards';
+				}
+
+				return 'unknown';
+			}
+
+			window.addEventListener("pagereveal", async (event) => {
+				if (event.viewTransition) {
+					const transitionType = determineTransitionType(navigation.activation.from, navigation.activation.entry);
+					event.viewTransition.types.add(transitionType);
+				}
+			});
+		</script>
 	</head>
 	<body>
 		<slot />
