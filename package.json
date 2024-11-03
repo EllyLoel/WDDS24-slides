@@ -17,7 +17,8 @@
   },
   "pnpm": {
     "patchedDependencies": {
-      "open-props": "patches/open-props.patch"
+      "open-props": "patches/open-props.patch",
+      "github-slugger": "patches/github-slugger.patch"
     }
   }
 }

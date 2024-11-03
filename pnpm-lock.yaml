@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 patchedDependencies:
+  github-slugger:
+    hash: dmi3apj35lbntex4tezuudgb5q
+    path: patches/github-slugger.patch
   open-props:
     hash: 44a3mduxlo5aqejcskfols7xla
     path: patches/open-props.patch
@@ -1623,7 +1626,7 @@ snapshots:
   '@astrojs/markdown-remark@5.3.0':
     dependencies:
       '@astrojs/prism': 3.1.0
-      github-slugger: 2.0.0
+      github-slugger: 2.0.0(patch_hash=dmi3apj35lbntex4tezuudgb5q)
       hast-util-from-html: 2.0.3
       hast-util-to-text: 4.0.2
       import-meta-resolve: 4.1.0
@@ -2162,7 +2165,7 @@ snapshots:
       estree-walker: 3.0.3
       fast-glob: 3.3.2
       flattie: 1.1.1
-      github-slugger: 2.0.0
+      github-slugger: 2.0.0(patch_hash=dmi3apj35lbntex4tezuudgb5q)
       gray-matter: 4.0.3
       html-escaper: 3.0.3
       http-cache-semantics: 4.1.1
@@ -2450,7 +2453,7 @@ snapshots:
 
   get-east-asian-width@1.3.0: {}
 
-  github-slugger@2.0.0: {}
+  github-slugger@2.0.0(patch_hash=dmi3apj35lbntex4tezuudgb5q): {}
 
   glob-parent@5.1.2:
     dependencies:
