@@ -1,6 +1,9 @@
 ---
+import markdownit from 'markdown-it';
 import Layout from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+
+const md = markdownit({ html: true });
 
 const title = 'Presenter view';
 
@@ -9,9 +12,9 @@ const slides = await getCollection('slides');
 const renderedSlides = await Promise.all(
 	slides.map(async (slide) => {
 		const { Content } = await slide.render();
-		const title = slide.data.title;
-		const speakerNotes = slide.data.speakerNotes;
-		return { Content, title, speakerNotes };
+		const title = md.renderInline(slide.data.title);
+		const notes = slide.data.notes;
+		return { Content, title, notes };
 	})
 );
 ---
@@ -23,14 +26,14 @@ const renderedSlides = await Promise.all(
 		</header>
 
 		<article>
-			{renderedSlides.map(({ Content, title, speakerNotes }, index) => (
+			{renderedSlides.map(({ Content, title, notes }, index) => (
 				<section id={`slide-${index+1}`} class={`slide slide-${index+1}`}>
 					<div class="slide-content">
 						<h2 set:html={title} />
 						<Content />
 					</div>
 					<div class="speaker-notes">
-						{ speakerNotes }
+						{ notes }
 					</div>
 				</section>
 			))}
@@ -167,6 +170,10 @@ const renderedSlides = await Promise.all(
 			gap: 1rem;
 			padding-inline: 1rem;
 		}
+	}
+
+	.speaker-notes {
+		font-size: var(--font-size-4);
 	}
 
 	form {

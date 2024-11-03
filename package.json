@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "astro": "^4.16.6",
+    "markdown-it": "^14.1.0",
     "open-props": "^1.7.7",
     "sanitize-html": "^2.13.1",
     "transition-style": "^0.1.3"
