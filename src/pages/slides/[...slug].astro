@@ -14,8 +14,13 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
-const md = markdownit({ html: true });
-const title = md.renderInline(entry.data.title);
+const md = markdownit({ html: true, breaks: true });
+let title;
+if (entry.data.multilineTitle) {
+	title = md.render(entry.data.title);
+} else {
+	title = md.renderInline(entry.data.title);
+}
 ---
 
 <Layout title={title} animation={entry.data.animation}>

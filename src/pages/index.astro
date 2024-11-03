@@ -3,7 +3,7 @@ import markdownit from 'markdown-it';
 import Layout from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 
-const md = markdownit({ html: true });
+const md = markdownit({ html: true, breaks: true });
 
 const title = 'Presenter view';
 
@@ -12,7 +12,12 @@ const slides = await getCollection('slides');
 const renderedSlides = await Promise.all(
 	slides.map(async (slide) => {
 		const { Content } = await slide.render();
-		const title = md.renderInline(slide.data.title);
+		let title;
+		if (slide.data.multilineTitle) {
+			title = md.render(slide.data.title);
+		} else {
+			title = md.renderInline(slide.data.title);
+		}
 		const notes = slide.data.notes;
 		return { Content, title, notes };
 	})

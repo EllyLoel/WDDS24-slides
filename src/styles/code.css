@@ -1,4 +1,5 @@
 pre {
+	line-height: var(--font-lineheight-3);
 	margin-block: var(--size-3);
 	text-align: start;
 	border-radius: var(--radius-3);
@@ -30,4 +31,5 @@ pre {
 
 code {
 	box-decoration-break: clone;
+	tab-size: 4;
 }
