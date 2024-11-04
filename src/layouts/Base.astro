@@ -50,6 +50,25 @@ const safeTitle = sanitizeHtml(title, {
 				}
 			});
 		</script>
+		<script type="module">
+			function cloneAttributes(target, source) {
+				[...source.attributes].forEach( attr => { target.setAttribute(attr.name ,attr.value) })
+			}
+			const removeSpans = document.querySelectorAll("span.diff.remove");
+			const addSpans = document.querySelectorAll("span.diff.add");
+			for (const removeSpan of removeSpans) {
+				const removeDel = document.createElement("del");
+				cloneAttributes(removeDel, removeSpan);
+				removeDel.innerHTML = removeSpan.innerHTML;
+				removeSpan.replaceWith(removeDel);
+			}
+			for (const addSpan of addSpans) {
+				const addIns = document.createElement("ins");
+				cloneAttributes(addIns, addSpan);
+				addIns.innerHTML = addSpan.innerHTML;
+				addSpan.replaceWith(addIns);
+			}
+		</script>
 	</head>
 	<body>
 		<slot />
