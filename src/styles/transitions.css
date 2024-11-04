@@ -1,8 +1,8 @@
 @import 'transition-style';
 
 html {
-	&[data-view-transition='none'] {
-		view-transition-name: none;
+	&[data-view-transition='none']::view-transition {
+		display: none;
 	}
 
 	&[data-view-transition='page'] {

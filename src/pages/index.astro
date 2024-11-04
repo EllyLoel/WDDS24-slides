@@ -5,21 +5,35 @@ import { getCollection } from 'astro:content';
 
 const md = markdownit({ html: true, breaks: true });
 
-const title = 'Presenter view';
+const title = 'View transitions in the real world';
 
 const slides = await getCollection('slides');
 
 const renderedSlides = await Promise.all(
 	slides.map(async (slide) => {
 		const { Content } = await slide.render();
+
 		let title;
 		if (slide.data.multilineTitle) {
 			title = md.render(slide.data.title);
 		} else {
 			title = md.renderInline(slide.data.title);
 		}
-		const notes = slide.data.notes;
-		return { Content, title, notes };
+
+		let notes;
+		if (slide.data.notes) {
+			notes = md.render(slide.data.notes);
+		}
+
+		const slideNumber = /\d(\.\d)*/.exec(slide.slug)?.at(0);
+
+		return {
+			Content,
+			title,
+			notes,
+			slug: slide.slug,
+			slideNumber,
+		};
 	})
 );
 ---
@@ -27,22 +41,13 @@ const renderedSlides = await Promise.all(
 <Layout title={title}>
 	<main>
 		<header>
-			<h1>{title}</h1>
+			<h1>
+				<span class="h1">{title}</span>
+				<span class="h3">by <a href="https://ellyloel.com/">Elly Loel</a></span>
+			</h1>
 		</header>
 
-		<article>
-			{renderedSlides.map(({ Content, title, notes }, index) => (
-				<section id={`slide-${index+1}`} class={`slide slide-${index+1}`}>
-					<div class="slide-content">
-						<h2 set:html={title} />
-						<Content />
-					</div>
-					<div class="speaker-notes">
-						{ notes }
-					</div>
-				</section>
-			))}
-		</article>
+		<h2>Presenter view</h2>
 
 		<form>
 			<fieldset>
@@ -92,6 +97,28 @@ const renderedSlides = await Promise.all(
 				</div>
 			</fieldset>
 		</form>
+
+		<ol class="slides">
+			{renderedSlides.map(({ Content, title, notes, slug, slideNumber }, index) => (
+				<li>
+					<section id={`slide-${slideNumber}`} class="slide">
+						<h3 class="h4">
+							<a href={`/slides/${slug}/`}>
+								<span class="visually-hidden">Slide</span>
+								{slideNumber}
+							</a>
+						</h3>
+						<div class="slide-content-and-notes">
+							<div class="slide-content">
+								<h4 class="h2" set:html={title} />
+								<Content />
+							</div>
+							<div class="slide-notes" set:html={notes} />
+						</div>
+					</section>
+				</li>
+			))}
+		</ol>
 	</main>
 </Layout>
 
@@ -153,41 +180,87 @@ const renderedSlides = await Promise.all(
 	const changeSlide = (newSlideIndex) => {
 		if (newSlideIndex < 1 || newSlideIndex > slides.length) return;
 		currentSlideIndex = newSlideIndex;
-		slideIndicator.textContent = currentSlideIndex;
-		navigation.navigate(`#slide-${currentSlideIndex}`);
+		const currentSlideNumber = /\d(\.\d)*/.exec(slides[currentSlideIndex - 1].slug)?.at(0);
+		slideIndicator.textContent = currentSlideNumber;
+		navigation.navigate(`#slide-${currentSlideNumber}`);
 		bc.postMessage({ slide: currentSlideIndex });
 	};
 </script>
 
 <style>
-	html {
-		scroll-padding: 1rem;
-	}
-
 	main {
 		display: grid;
-		place-items: center;
 		gap: var(--size-3);
+		padding: 1rem;
+		grid-template-areas:
+			"header header"
+			"h2 controls"
+			"slides slides";
 
-		> article {
+		> header {
+			grid-area: header;
+			margin-block-end: var(--size-7);
+
+			> h1 > span {
+				display: block;
+			}
+		}
+
+		> h2 {
+			grid-area: h2;
+		}
+
+		> .slides {
+			grid-area: slides;
 			inline-size: 100%;
 			display: grid;
 			gap: 1rem;
-			padding-inline: 1rem;
+			list-style: none;
+			padding: 0;
+
+			> li {
+				padding: 0;
+				max-inline-size: none;
+				font-size: inherit;
+			}
 		}
 	}
 
-	.speaker-notes {
-		font-size: var(--font-size-4);
+	.slide {
+		& .slide-content-and-notes {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: var(--size-3);
+		}
+
+		& .slide-content {
+			display: grid;
+			place-content: center;
+			text-align: center;
+			gap: var(--size-8);
+			box-shadow: var(--shadow-4);
+			border: var(--border-size-1) solid var(--surface-2);
+			border-radius: var(--radius-conditional-2);
+			padding-inline: var(--size-4);
+			padding-block: var(--size-3);
+			aspect-ratio: var(--ratio-widescreen);
+			zoom: 50%;
+		}
+
+		& .slide-notes {
+			font-size: var(--font-size-4);
+		}
 	}
 
 	form {
-		position: fixed;
+		grid-area: controls;
+		position: sticky;
 		inset: var(--size-3) var(--size-3) auto auto;
 		background-color: var(--surface-1);
 		border-radius: var(--radius-2);
 		box-shadow: var(--shadow-4);
 		border: var(--border-size-1) solid var(--surface-2);
+		justify-self: end;
 		padding-block: var(--size-2);
 		padding-inline: var(--size-2);
 
@@ -208,10 +281,9 @@ const renderedSlides = await Promise.all(
 				gap: var(--size-1);
 
 				> div {
-					aspect-ratio: var(--ratio-square);
-					inline-size: calc(var(--size-1) * 2 + var(--size-3));
-					text-align: center;
+					font-variant-numeric: tabular-nums;
 					font-weight: var(--font-weight-7);
+					padding-inline: var(--size-1);
 				}
 
 				> button {

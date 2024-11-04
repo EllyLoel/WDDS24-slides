@@ -6,7 +6,6 @@
 @import 'open-props/gray-hd' layer(frameworks);
 
 @import 'slide.css' layer(base);
-@import 'slides.css' layer(base);
 @import 'typography.css' layer(base);
 @import 'code.css' layer(base);
 @import 'transitions.css' layer(base);

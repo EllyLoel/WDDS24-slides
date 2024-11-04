@@ -46,20 +46,23 @@ pre {
 			#0000 0 0
 		),
 		conic-gradient(from 25deg at 35% 75%, #ffffff09, 85%, #fff0);
+
+	& code {
+		display: inline-block;
+		inline-size: 100%;
+
+		& :is(del, ins) {
+			display: inline-block;
+			inline-size: calc(100% + (var(--_pre-inline-padding) * 2));
+			padding-inline: var(--_pre-inline-padding);
+			margin-inline: calc(var(--_pre-inline-padding) * -1);
+		}
+	}
 }
 
 code {
 	box-decoration-break: clone;
 	tab-size: 4;
-	display: inline-block;
-	inline-size: 100%;
-
-	& :is(del, ins) {
-		display: inline-block;
-		inline-size: calc(100% + (var(--_pre-inline-padding) * 2));
-		padding-inline: var(--_pre-inline-padding);
-		margin-inline: calc(var(--_pre-inline-padding) * -1);
-	}
 
 	& del {
 		background: light-dark(
