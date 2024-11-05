@@ -72,12 +72,13 @@ code {
 	}
 
 	& del {
+		--color-hue: var(--hue-red);
 		background: light-dark(
-			var(--red-1),
-			color-mix(in oklch, var(--red-12), transparent 65%)
+			var(--color-1),
+			color-mix(in oklch, var(--color-15), transparent 65%)
 		);
 		text-decoration: none;
-		color: light-dark(var(--red-8), var(--red-3));
+		color: light-dark(var(--color-10), var(--color-4));
 
 		&::before {
 			content: '− ';
@@ -85,12 +86,13 @@ code {
 	}
 
 	& ins {
+		--color-hue: var(--hue-green);
 		background: light-dark(
-			var(--green-1),
-			color-mix(in oklch, var(--green-12), transparent 65%)
+			var(--color-1),
+			color-mix(in oklch, var(--color-15), transparent 65%)
 		);
 		text-decoration: none;
-		color: light-dark(var(--green-8), var(--green-3));
+		color: light-dark(var(--color-10), var(--color-4));
 
 		&::before {
 			content: '+ ';
