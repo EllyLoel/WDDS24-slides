@@ -1,5 +1,9 @@
 import { defineConfig } from 'astro/config';
-import { transformerNotationDiff } from '@shikijs/transformers';
+import {
+	transformerNotationDiff,
+	transformerNotationHighlight,
+	transformerNotationWordHighlight,
+} from '@shikijs/transformers';
 
 export default defineConfig({
 	markdown: {
@@ -9,7 +13,11 @@ export default defineConfig({
 				dark: 'github-dark-high-contrast',
 			},
 			wrap: true,
-			transformers: [transformerNotationDiff()],
+			transformers: [
+				transformerNotationDiff(),
+				transformerNotationHighlight(),
+				transformerNotationWordHighlight(),
+			],
 		},
 	},
 });

@@ -83,6 +83,7 @@ h6,
 }
 
 a {
+	color: light-dark(var(--purple-8), var(--teal-2));
 	padding-inline: var(--size-3);
 	text-decoration: underline;
 	text-decoration-color: var(--brand);

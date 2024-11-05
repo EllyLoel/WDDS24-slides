@@ -19,16 +19,16 @@
 	}
 
 	:root {
-		--brand: light-dark(color(display-p3 1 0 1), color(display-p3 0 1 0.75));
+		--brand: light-dark(oklch(60% 0.4 331.46), color(display-p3 0 1 0.75));
 		--gray-chroma: 0.01;
 		--gray-hue: 270;
 
-		--surface-1: light-dark(var(--gray-0), var(--gray-15));
-		--surface-2: light-dark(var(--gray-2), var(--gray-14));
-		--surface-3: light-dark(var(--gray-3), var(--gray-10));
-		--surface-4: light-dark(var(--gray-4), var(--gray-9));
+		--surface-1: light-dark(var(--gray-0), var(--gray-12));
+		--surface-2: light-dark(var(--gray-1), var(--gray-11));
+		--surface-3: light-dark(var(--gray-2), var(--gray-10));
+		--surface-4: light-dark(var(--gray-3), var(--gray-9));
 
-		--text-1: light-dark(var(--gray-14), var(--gray-1));
+		--text-1: light-dark(var(--gray-12), var(--gray-1));
 		--text-2: light-dark(var(--gray-11), var(--teal-1));
 	}
 
