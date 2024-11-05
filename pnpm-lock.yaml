@@ -22,6 +22,9 @@ importers:
       astro:
         specifier: ^4.16.6
         version: 4.16.6(rollup@4.24.0)(typescript@5.6.3)
+      github-slugger:
+        specifier: 2.0.0
+        version: 2.0.0(patch_hash=dmi3apj35lbntex4tezuudgb5q)
       markdown-it:
         specifier: ^14.1.0
         version: 14.1.0
