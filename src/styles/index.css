@@ -69,4 +69,22 @@
 			cursor: not-allowed;
 		}
 	}
+
+	aside {
+		inline-size: fit-content;
+		justify-self: center;
+	}
+
+	ol,
+	ul {
+		padding-inline-start: var(--size-8);
+
+		& li {
+			padding-inline-start: 0;
+		}
+
+		@container (inline-size < 50em) {
+			padding-inline-start: var(--size-5);
+		}
+	}
 }

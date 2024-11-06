@@ -188,116 +188,118 @@ const renderedSlides = await Promise.all(
 </script>
 
 <style>
-	main {
-		display: grid;
-		gap: var(--size-3);
-		padding: 1rem;
-		grid-template-areas:
-			"header header"
-			"h2 controls"
-			"slides slides";
-
-		> header {
-			grid-area: header;
-			margin-block-end: var(--size-7);
-
-			> h1 > span {
-				display: block;
-			}
-		}
-
-		> h2 {
-			grid-area: h2;
-		}
-
-		> .slides {
-			grid-area: slides;
-			inline-size: 100%;
+	@layer base {
+		main {
 			display: grid;
-			gap: 1rem;
-			list-style: none;
-			padding: 0;
-
-			> li {
-				padding: 0;
-				max-inline-size: none;
-				font-size: inherit;
-			}
-		}
-	}
-
-	.slide {
-		& .slide-content-and-notes {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 			gap: var(--size-3);
+			padding: 1rem;
+			grid-template-areas:
+				"header header"
+				"h2 controls"
+				"slides slides";
+
+			> header {
+				grid-area: header;
+				margin-block-end: var(--size-7);
+
+				> h1 > span {
+					display: block;
+				}
+			}
+
+			> h2 {
+				grid-area: h2;
+			}
+
+			> .slides {
+				grid-area: slides;
+				inline-size: 100%;
+				display: grid;
+				gap: 1rem;
+				list-style: none;
+				padding: 0;
+
+				> li {
+					padding: 0;
+					max-inline-size: none;
+					font-size: inherit;
+				}
+			}
 		}
 
-		& .slide-content {
-			display: grid;
-			place-content: center;
-			text-align: center;
-			gap: var(--size-8);
+		.slide {
+			& .slide-content-and-notes {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: var(--size-3);
+			}
+
+			& .slide-content {
+				display: grid;
+				place-content: center;
+				text-align: center;
+				gap: var(--size-3);
+				box-shadow: var(--shadow-4);
+				border: var(--border-size-1) solid var(--surface-2);
+				border-radius: var(--radius-conditional-2);
+				padding-inline: var(--size-4);
+				padding-block: var(--size-3);
+				aspect-ratio: var(--ratio-widescreen);
+				zoom: 50%;
+			}
+
+			& .slide-notes {
+				font-size: var(--font-size-4);
+			}
+		}
+
+		form {
+			grid-area: controls;
+			position: sticky;
+			inset: var(--size-3) var(--size-3) auto auto;
+			background-color: var(--surface-1);
+			border-radius: var(--radius-2);
 			box-shadow: var(--shadow-4);
 			border: var(--border-size-1) solid var(--surface-2);
-			border-radius: var(--radius-conditional-2);
-			padding-inline: var(--size-4);
-			padding-block: var(--size-3);
-			aspect-ratio: var(--ratio-widescreen);
-			zoom: 50%;
-		}
+			justify-self: end;
+			padding-block: var(--size-2);
+			padding-inline: var(--size-2);
 
-		& .slide-notes {
-			font-size: var(--font-size-4);
-		}
-	}
-
-	form {
-		grid-area: controls;
-		position: sticky;
-		inset: var(--size-3) var(--size-3) auto auto;
-		background-color: var(--surface-1);
-		border-radius: var(--radius-2);
-		box-shadow: var(--shadow-4);
-		border: var(--border-size-1) solid var(--surface-2);
-		justify-self: end;
-		padding-block: var(--size-2);
-		padding-inline: var(--size-2);
-
-		> fieldset {
-			border: none;
-			padding: 0;
-
-			> legend {
+			> fieldset {
+				border: none;
 				padding: 0;
-				font-weight: var(--font-weight-7);
-				line-height: var(--font-lineheight-1);
-				margin-block-end: var(--size-1);
-			}
 
-			> div {
-				display: flex;
-				place-items: center;
-				gap: var(--size-1);
+				> legend {
+					padding: 0;
+					font-weight: var(--font-weight-7);
+					line-height: var(--font-lineheight-1);
+					margin-block-end: var(--size-1);
+				}
 
 				> div {
-					font-variant-numeric: tabular-nums;
-					font-weight: var(--font-weight-7);
-					padding-inline: var(--size-1);
-				}
+					display: flex;
+					place-items: center;
+					gap: var(--size-1);
 
-				> button {
-					padding: var(--size-1);
-					background: none;
-
-					> svg {
-						fill: currentColor;
-						block-size: var(--size-3);
-						inline-size: var(--size-3);
-						aspect-ratio: var(--ratio-square);
+					> div {
+						font-variant-numeric: tabular-nums;
+						font-weight: var(--font-weight-7);
+						padding-inline: var(--size-1);
 					}
-				}
 
+					> button {
+						padding: var(--size-1);
+						background: none;
+
+						> svg {
+							fill: currentColor;
+							block-size: var(--size-3);
+							inline-size: var(--size-3);
+							aspect-ratio: var(--ratio-square);
+						}
+					}
+
+				}
 			}
 		}
 	}

@@ -46,24 +46,35 @@ const nextSlide =
 </script>
 
 <style is:global>
-	body {
-		display: grid;
-	}
+	@layer base {
+		body {
+			display: grid;
+		}
+		
+		body > * {
+			grid-area: 1 / 1;
+		}
+		
+		main {
+			display: grid;
+			place-content: center;
+			text-align: center;
+			gap: var(--size-8);
+			padding: var(--size-8);
+			max-inline-size: 100svi;
+			grid-template-columns: calc(100svi - (var(--size-8) * 2 ));
+			container-type: inline-size;
 
-	body > * {
-		grid-area: 1 / 1;
-	}
-
-	main {
-		display: grid;
-		place-content: center;
-		text-align: center;
-		gap: var(--size-8);
-		padding: var(--size-fluid-3);
-		max-inline-size: 100svi;
-	}
-
-	footer {
-		place-self: end;
+			
+			@media (width < 50em) {
+				gap: var(--size-5);
+				padding: var(--size-3);
+				grid-template-columns: calc(100svi - (var(--size-3) * 2 ));
+			}
+		}
+		
+		footer {
+			place-self: end;
+		}
 	}
 </style>

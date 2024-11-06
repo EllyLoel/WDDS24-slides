@@ -25,6 +25,7 @@ pre {
 	--_pre-inline-padding: var(--size-5);
 	padding-inline: var(--_pre-inline-padding);
 	box-shadow: var(--shadow-3);
+	justify-self: center;
 	max-inline-size: max(var(--size-content-1), 95vw);
 	background: linear-gradient(to bottom, #0003 0 0, 2.5rem, #0000 0 0),
 		radial-gradient(
@@ -69,6 +70,8 @@ code {
 		border: var(--border-size-1) solid light-dark(var(--gray-5), var(--gray-9));
 		padding-block: 1px;
 		padding-inline: 3px;
+		white-space: normal;
+		overflow-wrap: break-word;
 	}
 
 	& del {

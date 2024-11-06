@@ -51,22 +51,24 @@ const { prevHref, nextHref } = Astro.props;
 </script>
 
 <style>
-	.controls {
-		margin: var(--size-fluid-3);
-	}
-
-	.controls > a {
-		align-items: center;
-		border-radius: var(--radius-round);
-		color: var(--text-2);
-		display: flex;
-		margin: 0;
-		padding: var(--size-2);
-	}
-
-	.controls > a > svg {
-		fill: currentColor;
-		aspect-ratio: var(--ratio-square);
-		inline-size: var(--size-7);
+	@layer base {
+		.controls {
+			margin: var(--size-fluid-3);
+		}
+	
+		.controls > a {
+			align-items: center;
+			border-radius: var(--radius-round);
+			color: var(--text-2);
+			display: flex;
+			margin: 0;
+			padding: var(--size-2);
+		}
+	
+		.controls > a > svg {
+			fill: currentColor;
+			aspect-ratio: var(--ratio-square);
+			inline-size: var(--size-7);
+		}
 	}
 </style>
