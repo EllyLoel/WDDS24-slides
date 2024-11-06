@@ -33,6 +33,8 @@ const renderedSlides = await Promise.all(
 			notes,
 			slug: slide.slug,
 			slideNumber,
+			align: slide.data.align,
+			smallTitle: slide.data.smallTitle,
 		};
 	})
 );
@@ -99,8 +101,8 @@ const renderedSlides = await Promise.all(
 		</form>
 
 		<ol class="slides">
-			{renderedSlides.map(({ Content, title, notes, slug, slideNumber }, index) => (
-				<li>
+			{renderedSlides.map(({ Content, title, notes, slug, slideNumber, align = 'center', smallTitle }, index) => (
+				<li data-align={align}>
 					<section id={`slide-${slideNumber}`} class="slide">
 						<h3 class="h4">
 							<a href={`/slides/${slug}/`}>
@@ -110,7 +112,7 @@ const renderedSlides = await Promise.all(
 						</h3>
 						<div class="slide-content-and-notes">
 							<div class="slide-content">
-								<h4 class="h2" set:html={title} />
+								<h4 class={smallTitle ? "h2" : "h1"} set:html={title} />
 								<Content />
 							</div>
 							<div class="slide-notes" set:html={notes} />
@@ -236,8 +238,6 @@ const renderedSlides = await Promise.all(
 
 			& .slide-content {
 				display: grid;
-				place-content: center;
-				text-align: center;
 				gap: var(--size-3);
 				box-shadow: var(--shadow-4);
 				border: var(--border-size-1) solid var(--surface-2);
@@ -246,6 +246,17 @@ const renderedSlides = await Promise.all(
 				padding-block: var(--size-3);
 				aspect-ratio: var(--ratio-widescreen);
 				zoom: 50%;
+
+				[data-align="center"] & {
+					text-align: center;
+					place-content: center;
+					justify-items: center;
+				}
+
+				[data-align="left"] & {
+					align-content: center;
+					text-align: left;
+				}
 			}
 
 			& .slide-notes {

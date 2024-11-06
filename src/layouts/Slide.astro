@@ -5,10 +5,11 @@ import { getCollection } from 'astro:content';
 
 export interface Props {
 	title: string;
-	animation?: 'page' | 'element' | string;
+	animation?: 'page' | 'element' | 'none' | string;
+	align?: 'center' | 'left' | string;
 }
 
-const { title, animation } = Astro.props;
+const { title, animation, align } = Astro.props;
 
 const slides = await getCollection('slides');
 const currentSlideIndex = slides.findIndex(
@@ -20,7 +21,7 @@ const nextSlide =
 	currentSlideIndex >= slides.length ? null : slides.at(currentSlideIndex + 1);
 ---
 
-<Layout title={title} animation={animation}>
+<Layout title={title} animation={animation} align={align}>
 	<main>
 		<slot />
 	</main>
@@ -49,23 +50,32 @@ const nextSlide =
 	@layer base {
 		body {
 			display: grid;
+
+			> * {
+				grid-area: 1 / 1;
+			}
 		}
 		
-		body > * {
-			grid-area: 1 / 1;
-		}
 		
 		main {
 			display: grid;
-			place-content: center;
-			text-align: center;
 			gap: var(--size-8);
 			padding: var(--size-8);
 			max-inline-size: 100svi;
 			grid-template-columns: calc(100svi - (var(--size-8) * 2 ));
 			container-type: inline-size;
 
-			
+			[data-align="center"] & {
+				text-align: center;
+				place-content: center;
+				justify-items: center;
+			}
+
+			[data-align="left"] & {
+				align-content: center;
+				text-align: left;
+			}
+
 			@media (width < 50em) {
 				gap: var(--size-5);
 				padding: var(--size-3);

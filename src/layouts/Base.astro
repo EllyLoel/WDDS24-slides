@@ -5,16 +5,17 @@ import '../styles/index.css';
 export interface Props {
 	title: string;
 	animation?: 'page' | 'element' | string;
+	align?: 'center' | 'left' | string;
 }
 
-const { title, animation = 'element' } = Astro.props;
+const { title, animation = 'element', align = 'center' } = Astro.props;
 const safeTitle = sanitizeHtml(title, {
 	allowedTags: [],
 });
 ---
 
 <!DOCTYPE html>
-<html lang="en" data-view-transition={animation}>
+<html lang="en" data-view-transition={animation} data-align={align}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />

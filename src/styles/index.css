@@ -70,11 +70,6 @@
 		}
 	}
 
-	aside {
-		inline-size: fit-content;
-		justify-self: center;
-	}
-
 	ol,
 	ul {
 		padding-inline-start: var(--size-8);
