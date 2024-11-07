@@ -23,7 +23,7 @@ if (entry.data.multilineTitle) {
 }
 ---
 
-<Layout title={title} animation={entry.data.animation} align={entry.data.align}>
+<Layout title={title} animation={entry.data.animation} align={entry.data.align} noJustifyItems={entry.data.noJustifyItems}>
 	<h1 set:html={title} class={entry.data.smallTitle && 'h2'} />
-	<div class="content"><Content /></div>
+	<div class={entry.data.noFlow ? "content" : "content flow"}><Content /></div>
 </Layout>

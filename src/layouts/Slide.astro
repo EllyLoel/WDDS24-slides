@@ -7,9 +7,10 @@ export interface Props {
 	title: string;
 	animation?: 'page' | 'element' | 'none' | string;
 	align?: 'center' | 'left' | string;
+	noJustifyItems?: boolean;
 }
 
-const { title, animation, align } = Astro.props;
+const { title, animation, align, noJustifyItems } = Astro.props;
 
 const slides = await getCollection('slides');
 const currentSlideIndex = slides.findIndex(
@@ -22,13 +23,13 @@ const nextSlide =
 ---
 
 <Layout title={title} animation={animation} align={align}>
-	<main>
+	<main style={noJustifyItems && "justify-items: unset;"}>
 		<slot />
 	</main>
 	<footer>
 		<Controls
-		prevHref={prevSlide ? `/slides/${prevSlide.slug}/` : null}
-		nextHref={nextSlide ? `/slides/${nextSlide.slug}/` : null}
+			prevHref={prevSlide ? `/slides/${prevSlide.slug}/` : null}
+			nextHref={nextSlide ? `/slides/${nextSlide.slug}/` : null}
 		/>
 	</footer>
 </Layout>

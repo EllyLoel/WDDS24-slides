@@ -1,15 +1,16 @@
 @import 'transition-style';
 
 html {
-	&[data-view-transition='none']::view-transition {
-		display: none;
-	}
-
 	&[data-view-transition='page'] {
 	}
 
 	&[data-view-transition='element'] {
 		view-transition-name: none;
+
+		&::view-transition-old(*),
+		&::view-transition-new(*) {
+			block-size: 100%;
+		}
 
 		& h1:nth-child(1 of main h1) {
 			view-transition-name: slide-title;

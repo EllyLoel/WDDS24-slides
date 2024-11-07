@@ -21,6 +21,15 @@ const safeTitle = sanitizeHtml(title, {
 		<meta name="viewport" content="width=device-width" />
 		<title>{safeTitle}</title>
 		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>🎞️</text></svg>">
+		<script type="module" define:vars={{animation}}>
+			window.addEventListener("pagereveal", async (event) => {
+				if (event.viewTransition) {
+					if (animation === "none") {
+						event.viewTransition.skipTransition();
+					}
+				}
+			});
+		</script>
 		<script type="module">
 			const extractPageIndexFromPath = (pathname) => /\d(\.\d)*/.exec(pathname)?.at(0);
 

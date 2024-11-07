@@ -1,0 +1,24 @@
+@media (prefers-reduced-motion) {
+	:root {
+		view-transition-name: root;
+
+		&::view-transition-new(root),
+		&::view-transition-old(root) {
+			animation-duration: inherit;
+			animation-fill-mode: inherit;
+		}
+
+		&::view-transition-new(root) {
+			animation-name: -ua-view-transition-fade-in,
+				-ua-mix-blend-mode-plus-lighter;
+		}
+		&::view-transition-old(root) {
+			animation-name: -ua-view-transition-fade-out,
+				-ua-mix-blend-mode-plus-lighter;
+		}
+
+		& * {
+			view-transition-name: none;
+		}
+	}
+}
