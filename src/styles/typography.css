@@ -111,12 +111,12 @@ h6,
 
 a {
 	color: light-dark(var(--color-10), var(--color-3));
-	padding-inline: var(--size-3);
 	text-decoration: underline;
 	text-decoration-color: var(--brand);
 	text-underline-offset: 0.1em;
 
 	:not(h1) > & {
+		padding-inline: var(--size-3);
 		margin-inline: calc(var(--size-3) * -1);
 	}
 

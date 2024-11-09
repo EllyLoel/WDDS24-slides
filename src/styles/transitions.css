@@ -1,6 +1,12 @@
 @import 'transition-style';
 
 html {
+	&:not([data-view-transition='none']) {
+		&::view-transition-group(*) {
+			animation-duration: 0.5s;
+		}
+	}
+
 	&[data-view-transition='page'] {
 	}
 
@@ -20,14 +26,8 @@ html {
 			view-transition-name: content;
 		}
 
-		& h2:nth-child(1 of .content h2),
-		& .h2:nth-child(1 of .content .h2) {
+		& :is(h2, .h2):only-of-type {
 			view-transition-name: slide-subtitle;
-		}
-
-		& h2:nth-child(2 of .content h2),
-		& .h2:nth-child(2 of .content .h2) {
-			view-transition-name: slide-subtitle-two;
 		}
 
 		& pre:nth-child(1 of .content pre) {
@@ -38,20 +38,12 @@ html {
 			view-transition-name: second-snippet;
 		}
 
-		& p:nth-child(1 of .content p) {
+		& p:only-of-type {
 			view-transition-name: first-paragraph;
 		}
 
-		& p:nth-child(2 of .content p) {
-			view-transition-name: second-paragraph;
-		}
-
-		& .content picture {
-			view-transition-name: slide-emoji;
-		}
-
-		& aside {
-			view-transition-name: slide-aside;
+		& img {
+			view-transition-name: slide-image;
 		}
 
 		& .controls {
