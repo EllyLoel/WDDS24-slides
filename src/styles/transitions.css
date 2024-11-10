@@ -1,6 +1,10 @@
 @import 'transition-style';
 
 html {
+	&::view-transition {
+		pointer-events: none;
+	}
+
 	&:not([data-view-transition='none']) {
 		&::view-transition-group(*) {
 			animation-duration: 0.5s;
