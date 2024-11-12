@@ -63,6 +63,7 @@
 		padding: var(--size-1) var(--size-2);
 		border-radius: var(--radius-2);
 		border: var(--border-size-2) solid currentColor;
+		background-color: light-dark(var(--surface-2), var(--surface-4));
 
 		&:disabled {
 			border-style: dashed;
@@ -81,5 +82,9 @@
 		@container (inline-size < 50em) {
 			padding-inline-start: var(--size-5);
 		}
+	}
+
+	svg {
+		pointer-events: none;
 	}
 }
