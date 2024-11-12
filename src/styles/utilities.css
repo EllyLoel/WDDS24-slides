@@ -11,3 +11,8 @@
 .flow > * + * {
 	margin-block-start: var(--flow-space, 1em);
 }
+
+.two-up {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}

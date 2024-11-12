@@ -237,14 +237,16 @@ const renderedSlides = await Promise.all(
 			}
 
 			& .slide-content {
-				display: grid;
-				gap: var(--size-3);
+				aspect-ratio: var(--ratio-widescreen);
 				box-shadow: var(--shadow-4);
 				border: var(--border-size-1) solid var(--surface-2);
 				border-radius: var(--radius-conditional-2);
+				display: grid;
+				gap: var(--size-3);
+				isolation: isolate;
 				padding-inline: var(--size-4);
 				padding-block: var(--size-3);
-				aspect-ratio: var(--ratio-widescreen);
+				position: relative;
 				zoom: 50%;
 
 				[data-align="center"] & {

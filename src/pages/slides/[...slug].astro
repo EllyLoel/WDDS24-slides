@@ -24,6 +24,9 @@ if (entry.data.multilineTitle) {
 ---
 
 <Layout title={title} animation={entry.data.animation} align={entry.data.align} noJustifyItems={entry.data.noJustifyItems}>
-	<h1 set:html={title} class={entry.data.smallTitle && 'h2'} />
+	<h1 set:html={title} class:list={[{
+		'h2': entry.data.smallTitle,
+		'visually-hidden': entry.data.visuallyHiddenTitle,
+	}]} />
 	<div class={entry.data.noFlow ? "content" : "content flow"}><Content /></div>
 </Layout>
