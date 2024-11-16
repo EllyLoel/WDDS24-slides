@@ -23,7 +23,13 @@ if (entry.data.multilineTitle) {
 }
 ---
 
-<Layout title={title} animation={entry.data.animation} align={entry.data.align} noJustifyItems={entry.data.noJustifyItems}>
+<Layout
+	title={title}
+	animation={entry.data.animation}
+	align={entry.data.align}
+	noJustifyItems={entry.data.noJustifyItems}
+	renderBlocking={entry.data.renderBlocking}
+>
 	<h1 set:html={title} class:list={[{
 		'h2': entry.data.smallTitle,
 		'visually-hidden': entry.data.visuallyHiddenTitle,

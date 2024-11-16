@@ -8,9 +8,10 @@ export interface Props {
 	animation?: 'page' | 'element' | 'none' | string;
 	align?: 'center' | 'left' | string;
 	noJustifyItems?: boolean;
+	renderBlocking?: string | string[];
 }
 
-const { title, animation, align, noJustifyItems } = Astro.props;
+const { title, animation, align, noJustifyItems, renderBlocking } = Astro.props;
 
 const slides = await getCollection('slides');
 const currentSlideIndex = slides.findIndex(
@@ -22,7 +23,7 @@ const nextSlide =
 	currentSlideIndex >= slides.length ? null : slides.at(currentSlideIndex + 1);
 ---
 
-<Layout title={title} animation={animation} align={align}>
+<Layout title={title} animation={animation} align={align} renderBlocking={renderBlocking}>
 	<main style={noJustifyItems && "justify-items: unset;"}>
 		<slot />
 	</main>

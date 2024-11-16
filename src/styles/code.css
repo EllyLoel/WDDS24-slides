@@ -104,8 +104,8 @@ code {
 	.highlighted-word {
 		--_highlighted-word-padding-block: 1px;
 		--_highlighted-word-padding-inline: 3px;
-		background: light-dark(var(--gray-1), var(--gray-10));
-		border: var(--border-size-1) solid var(--gray-5);
+		background: light-dark(var(--color-1), var(--color-10));
+		border: var(--border-size-1) solid var(--color-5);
 		padding-block: var(--_highlighted-word-padding-block);
 		padding-inline: var(--_highlighted-word-padding-inline);
 		margin-block: calc(var(--_highlighted-word-padding-block) * -1);
