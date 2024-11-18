@@ -41,29 +41,19 @@ const safeTitle = sanitizeHtml(title, {
 			});
 		</script>
 		<script type="module">
-			const extractPageIndexFromPath = (pathname) => /\d(\.\d)*/.exec(pathname)?.at(0);
+			const extractSlideNumberFromPath = (pathname) => /\d(\.\d)*/.exec(pathname)?.at(0);
 
 			const determineTransitionType = (fromNavigationEntry, toNavigationEntry) => {
-				const currentURL = new URL(fromNavigationEntry.url);
-				const destinationURL = new URL(toNavigationEntry.url);
+				const fromSlideNumber = extractSlideNumberFromPath(new URL(fromNavigationEntry.url).pathname);
+				const toSlideNumber = extractSlideNumberFromPath(new URL(toNavigationEntry.url).pathname);
 
-				const currentPathname = currentURL.pathname;
-				const destinationPathname = destinationURL.pathname;
-
-				const currentPageIndex = extractPageIndexFromPath(currentPathname);
-				const destinationPageIndex = extractPageIndexFromPath(destinationPathname);
-
-				if (currentPageIndex > destinationPageIndex) {
-					return 'backwards';
-				}
-				if (currentPageIndex < destinationPageIndex) {
-					return 'forwards';
-				}
+				if (fromSlideNumber > toSlideNumber) return 'backwards';
+				if (fromSlideNumber < toSlideNumber) return 'forwards';
 
 				return 'unknown';
 			}
 
-			window.addEventListener("pagereveal", async (event) => {
+			window.addEventListener('pagereveal', async (event) => {
 				if (event.viewTransition) {
 					const transitionType = determineTransitionType(navigation.activation.from, navigation.activation.entry);
 					event.viewTransition.types.add(transitionType);

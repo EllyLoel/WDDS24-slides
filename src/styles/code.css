@@ -51,7 +51,7 @@ pre {
 		display: inline-block;
 		inline-size: 100%;
 
-		& :is(del, ins) {
+		& :is(del, ins, .highlighted) {
 			display: inline-block;
 			inline-size: calc(100% + (var(--_pre-inline-padding) * 2));
 			padding-inline: var(--_pre-inline-padding);
@@ -99,6 +99,10 @@ code {
 		&::before {
 			content: '+ ';
 		}
+	}
+
+	.highlighted {
+		background: light-dark(var(--color-1), var(--color-10));
 	}
 
 	.highlighted-word {
