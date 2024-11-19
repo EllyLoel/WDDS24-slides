@@ -36,16 +36,22 @@ const nextSlide =
 </Layout>
 
 <script is:inline define:vars={{ slides }}>
-	const bc = new BroadcastChannel('slides');
-	bc.postMessage({ location: location.href });
-	bc.addEventListener('message', (event) => {
-		if (event.data.location && event.data.location !== Astro.url.href) {
-			location = event.data.location;
-		}
-		if (event.data.slide) {
-			location = `/slides/${slides[event.data.slide - 1].slug}/`;
-		}
-	});
+	if (window.self === window.top) {
+		const bc = new BroadcastChannel('slides');
+		bc.postMessage({ location: location.href });
+		bc.addEventListener('message', (event) => {
+			if (event.data.location && event.data.location !== Astro.url.href) {
+				location = event.data.location;
+			}
+			if (event.data.slide) {
+				location = `/slides/${slides[event.data.slide - 1].slug}/`;
+			}
+		});
+	}
+
+	if (new URLSearchParams(location.search).has("no-controls")) {
+		document.querySelector("footer").setAttribute("hidden", "");
+	}
 </script>
 
 <style is:global>

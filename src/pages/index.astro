@@ -1,6 +1,7 @@
 ---
+import sanitizeHtml from 'sanitize-html';
 import markdownit from 'markdown-it';
-import Layout from '../layouts/Base.astro';
+import Layout from '../layouts/Index.astro';
 import { getCollection } from 'astro:content';
 
 const md = markdownit({ html: true, breaks: true });
@@ -11,14 +12,16 @@ const slides = await getCollection('slides');
 
 const renderedSlides = await Promise.all(
 	slides.map(async (slide) => {
-		const { Content } = await slide.render();
-
 		let title;
 		if (slide.data.multilineTitle) {
 			title = md.render(slide.data.title);
 		} else {
 			title = md.renderInline(slide.data.title);
 		}
+
+		const safeTitle = sanitizeHtml(title, {
+			allowedTags: [],
+		});
 
 		let notes;
 		if (slide.data.notes) {
@@ -28,13 +31,10 @@ const renderedSlides = await Promise.all(
 		const slideNumber = /\d(\.\d)*/.exec(slide.slug)?.at(0);
 
 		return {
-			Content,
-			title,
+			safeTitle,
 			notes,
 			slug: slide.slug,
 			slideNumber,
-			align: slide.data.align,
-			smallTitle: slide.data.smallTitle,
 		};
 	})
 );
@@ -101,8 +101,8 @@ const renderedSlides = await Promise.all(
 		</form>
 
 		<ol class="slides">
-			{renderedSlides.map(({ Content, title, notes, slug, slideNumber, align = 'center', smallTitle }, index) => (
-				<li data-align={align}>
+			{renderedSlides.map(({ safeTitle, notes, slug, slideNumber }, index) => (
+				<li>
 					<section id={`slide-${slideNumber}`} class="slide">
 						<h3 class="h4">
 							<a href={`/slides/${slug}/`}>
@@ -111,10 +111,12 @@ const renderedSlides = await Promise.all(
 							</a>
 						</h3>
 						<div class="slide-content-and-notes">
-							<div class="slide-content">
-								<h4 class={smallTitle ? "h2" : "h1"} set:html={title} />
-								<Content />
-							</div>
+							<iframe
+								src={`/slides/${slug}/?no-controls`}
+								title={safeTitle}
+								loading={index > 3 ? 'lazy' : 'eager'}
+								class="slide-content"
+							></iframe>
 							<div class="slide-notes" set:html={notes} />
 						</div>
 					</section>
@@ -200,6 +202,14 @@ const renderedSlides = await Promise.all(
 				"h2 controls"
 				"slides slides";
 
+			@media (width < 50em) {
+				grid-template-areas:
+					"header"
+					"h2"
+					"controls"
+					"slides";
+			}
+
 			> header {
 				grid-area: header;
 				margin-block-end: var(--size-7);
@@ -240,25 +250,9 @@ const renderedSlides = await Promise.all(
 				aspect-ratio: var(--ratio-widescreen);
 				box-shadow: var(--shadow-4);
 				border: var(--border-size-1) solid var(--surface-2);
-				border-radius: var(--radius-conditional-2);
-				display: grid;
-				gap: var(--size-3);
-				isolation: isolate;
-				padding-inline: var(--size-4);
-				padding-block: var(--size-3);
-				position: relative;
+				border-radius: var(--radius-conditional-3);
+				inline-size: 100%;
 				zoom: 50%;
-
-				[data-align="center"] & {
-					text-align: center;
-					place-content: center;
-					justify-items: center;
-				}
-
-				[data-align="left"] & {
-					align-content: center;
-					text-align: left;
-				}
 			}
 
 			& .slide-notes {
@@ -267,16 +261,17 @@ const renderedSlides = await Promise.all(
 		}
 
 		form {
-			grid-area: controls;
-			position: sticky;
-			inset: var(--size-3) var(--size-3) auto auto;
 			background-color: var(--surface-1);
 			border-radius: var(--radius-2);
 			box-shadow: var(--shadow-4);
 			border: var(--border-size-1) solid var(--surface-2);
+			grid-area: controls;
+			inset: var(--size-3) var(--size-3) auto auto;
 			justify-self: end;
 			padding-block: var(--size-2);
 			padding-inline: var(--size-2);
+			position: sticky;
+			z-index: var(--layer-1);
 
 			> fieldset {
 				border: none;

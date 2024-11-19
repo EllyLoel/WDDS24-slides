@@ -31,23 +31,25 @@ const { prevHref, nextHref } = Astro.props;
 </nav>
 
 <script is:inline define:vars={{ prevHref, nextHref }}>
-	if (nextHref) {
-		const prefetchLink = document.createElement('link');
-		prefetchLink.rel = 'prefetch';
-		prefetchLink.href = `${nextHref}`;
-		document.head.appendChild(prefetchLink);
-	}
+	if (!new URLSearchParams(location.search).has("no-controls")) {
+		if (nextHref) {
+			const prefetchLink = document.createElement('link');
+			prefetchLink.rel = 'prefetch';
+			prefetchLink.href = `${nextHref}`;
+			document.head.appendChild(prefetchLink);
+		}
 
-	window.addEventListener('keydown', (e) => {
-		if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
-			if (!prevHref) return;
-			window.location = `${prevHref}`;
-		}
-		if (e.key === 'ArrowRight' || e.key === 'PageDown') {
-			if (!nextHref) return;
-			window.location = `${nextHref}`;
-		}
-	});
+		window.addEventListener('keydown', (e) => {
+			if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+				if (!prevHref) return;
+				window.location = `${prevHref}`;
+			}
+			if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+				if (!nextHref) return;
+				window.location = `${nextHref}`;
+			}
+		});
+	}
 </script>
 
 <style>
