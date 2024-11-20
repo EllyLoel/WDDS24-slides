@@ -133,3 +133,9 @@ aside {
 	padding-inline: var(--size-7);
 	padding-block: var(--size-3);
 }
+
+del {
+	--color-hue: var(--hue-red);
+	background-color: var(--color-10);
+	color: var(--color-1);
+}
