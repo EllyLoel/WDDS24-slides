@@ -1,3 +1,46 @@
 .content:empty {
 	display: none;
 }
+
+.browser-support {
+	font-size: 2rem;
+	display: flex;
+	gap: var(--size-relative-5);
+	justify-content: center;
+
+	details:has(&) {
+		inline-size: 42ch;
+		margin-inline: auto;
+	}
+
+	> p {
+		--color-hue: var(--hue-green);
+		color: light-dark(var(--color-6), var(--color-4));
+		display: flex;
+		align-items: center;
+		gap: var(--size-relative-3);
+		font-weight: var(--font-weight-7);
+
+		&:not(:first-child) {
+			border-inline-start: var(--border-size-2) solid var(--gray-5);
+			padding-inline-start: var(--size-relative-5);
+		}
+	}
+
+	& img {
+		display: inline-block;
+		font-size: var(--font-size-5);
+		block-size: var(--size-relative-7);
+		aspect-ratio: var(--ratio-square);
+		object-fit: contain;
+		object-position: center;
+
+		&:not(:first-of-type) {
+			block-size: 0.8em;
+
+			@media (prefers-color-scheme: dark) {
+				filter: invert(1);
+			}
+		}
+	}
+}

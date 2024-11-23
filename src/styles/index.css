@@ -87,4 +87,45 @@
 	svg {
 		pointer-events: none;
 	}
+
+	details {
+		@media (prefers-reduced-motion: no-preference) {
+			interpolate-size: allow-keywords;
+		}
+
+		&[open] {
+			padding-block-end: var(--size-3);
+
+			> summary {
+				margin-block-end: var(--size-3);
+			}
+		}
+
+		@supports selector(::details-content) {
+			&[open],
+			& {
+				padding-block-end: 0;
+
+				> summary {
+					margin-block-end: 0;
+				}
+			}
+
+			&::details-content {
+				block-size: 0;
+				opacity: 0%;
+				overflow-y: clip;
+				transition-behavior: allow-discrete;
+				transition-duration: 300ms;
+				transition-property: content-visibility, block-size, padding, opacity;
+				transition-timing-function: ease-in-out;
+			}
+
+			&[open]::details-content {
+				block-size: auto;
+				opacity: 100%;
+				padding-block: var(--size-3);
+			}
+		}
+	}
 }

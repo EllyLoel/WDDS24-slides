@@ -115,13 +115,10 @@ a {
 	text-decoration-color: var(--brand);
 	text-underline-offset: 0.1em;
 
-	:not(h1) > & {
+	&:focus-visible {
+		border-radius: var(--radius-round);
 		padding-inline: var(--size-3);
 		margin-inline: calc(var(--size-3) * -1);
-	}
-
-	&:focus {
-		border-radius: var(--radius-round);
 	}
 }
 
