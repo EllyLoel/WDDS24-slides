@@ -36,10 +36,6 @@ html {
 			view-transition-name: second-snippet;
 		}
 
-		& p:only-of-type {
-			view-transition-name: first-paragraph;
-		}
-
 		& img {
 			view-transition-name: slide-image;
 		}
