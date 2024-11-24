@@ -60,7 +60,9 @@ const nextSlide =
 			display: grid;
 
 			> * {
-				grid-area: 1 / 1;
+				@media (width >= 50em) {
+					grid-area: 1 / 1;
+				}
 			}
 		}
 		
