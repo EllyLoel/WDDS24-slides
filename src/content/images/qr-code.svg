@@ -1,0 +1,259 @@
+<svg xmlns="http://www.w3.org/2000/svg" transform-origin="left top" viewBox="138.164 16 200 200">
+	<defs>
+		<path id="b" fill="#fff" d="M138.164 16h200v200h-200z"/>
+	</defs>
+	<g mask="url(#a)">
+		<rect width="200" height="200" x="138.164" y="16" fill="#FFF" rx="24" ry="24"/>
+		<mask id="a">
+			<use href="#b"/>
+		</mask>
+		<g mask="url(#c)">
+			<mask id="c">
+				<use href="#b"/>
+			</mask>
+			<g transform="translate(138.164 16)">
+				<defs>
+					<clipPath id="d">
+						<path d="M13 61v6h3a3 3 0 0 0 0-6" transform="rotate(180 16 64)"/>
+						<path d="M13 73v6h3a3 3 0 0 0 0-6" transform="rotate(180 16 76)"/>
+						<path d="M13 85v6h6v-3a3 3 0 0 0-3-3" transform="rotate(-90 16 88)"/>
+						<path d="M13 91v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 16 94)"/>
+						<path d="M13 115v6h3a3 3 0 0 0 0-6" transform="rotate(-90 16 118)"/>
+						<path d="M13 121h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M13 133v6h3a3 3 0 0 0 0-6" transform="rotate(90 16 136)"/>
+						<path d="M19 61v6h6v-3a3 3 0 0 0-3-3m-3 6h6v6h-6z"/>
+						<path d="M19 73v6h6v-3a3 3 0 0 0-3-3" transform="rotate(90 22 76)"/>
+						<path d="M19 85h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M19 109v6h3a3 3 0 0 0 0-6" transform="rotate(180 22 112)"/>
+						<path d="M19 121v6h3a3 3 0 0 0 0-6"/>
+						<path d="M25 79v6h3a3 3 0 0 0 0-6" transform="rotate(-90 28 82)"/>
+						<path d="M25 85h6v6h-6zm0 6h6v6h-6zm0 18h6v6h-6z"/>
+						<circle cx="28" cy="136" r="3"/>
+						<path d="M31 61v6h3a3 3 0 0 0 0-6" transform="rotate(-90 34 64)"/>
+						<path d="M31 67v6h3a3 3 0 0 0 0-6" transform="rotate(90 34 70)"/>
+						<path d="M31 91v6h6v-3a3 3 0 0 0-3-3"/>
+						<path d="M31 97v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 34 100)"/>
+						<path d="M31 109h6v6h-6z"/>
+						<path d="M31 115v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 34 118)"/>
+						<path d="M31 127v6h3a3 3 0 0 0 0-6" transform="rotate(180 34 130)"/>
+						<path d="M37 79v6h3a3 3 0 0 0 0-6" transform="rotate(-90 40 82)"/>
+						<path d="M37 85v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 40 88)"/>
+						<path d="M37 97v6h6v-3a3 3 0 0 0-3-3m-3 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M43 73v6h3a3 3 0 0 0 0-6" transform="rotate(180 46 76)"/>
+						<path d="M43 85h6v6h-6z"/>
+						<path d="M43 91v6h3a3 3 0 0 0 0-6" transform="rotate(90 46 94)"/>
+						<path d="M43 109h6v6h-6z"/>
+						<path d="M43 115v6h6v-3a3 3 0 0 0-3-3" transform="rotate(90 46 118)"/>
+						<path d="M43 127v6h6v-3a3 3 0 0 0-3-3"/>
+						<path d="M43 133v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 46 136)"/>
+						<path d="M49 61v6h3a3 3 0 0 0 0-6" transform="rotate(180 52 64)"/>
+						<path d="M49 73h6v6h-6zm0 12h6v6h-6z"/>
+						<circle cx="52" cy="100" r="3"/>
+						<path d="M49 109h6v6h-6z"/>
+						<path d="M49 121v6h3a3 3 0 0 0 0-6" transform="rotate(180 52 124)"/>
+						<path d="M49 133h6v6h-6zm6-72v6h3a3 3 0 0 0 0-6m-3 12h6v6h-6zm0 12h6v6h-6z"/>
+						<path d="M55 103v6h3a3 3 0 0 0 0-6" transform="rotate(-90 58 106)"/>
+						<path d="M55 109h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M55 121v6h6v-3a3 3 0 0 0-3-3" transform="rotate(90 58 124)"/>
+						<path d="M55 133v6h3a3 3 0 0 0 0-6"/>
+						<path d="M61 13v6h3a3 3 0 0 0 0-6" transform="rotate(180 64 16)"/>
+						<path d="M61 25v6h6v-3a3 3 0 0 0-3-3" transform="rotate(-90 64 28)"/>
+						<path d="M61 31v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 64 34)"/>
+						<path d="M61 43v6h6v-3a3 3 0 0 0-3-3" transform="rotate(-90 64 46)"/>
+						<path d="M61 49h6v6h-6z"/>
+						<path d="M61 55v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 64 58)"/>
+						<path d="M61 73h6v6h-6zm0 12h6v6h-6z"/>
+						<path d="M61 97v6h3a3 3 0 0 0 0-6" transform="rotate(180 64 100)"/>
+						<path d="M61 109h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M61 145v6h3a3 3 0 0 0 0-6" transform="rotate(180 64 148)"/>
+						<circle cx="64" cy="166" r="3"/>
+						<path d="M61 175v6h3a3 3 0 0 0 0-6" transform="rotate(-90 64 178)"/>
+						<path d="M61 181v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 64 184)"/>
+						<path d="M67 13h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 12h6v6h-6zm0 12h6v6h-6z"/>
+						<path d="M67 61v6h3a3 3 0 0 0 0-6" transform="rotate(90 70 64)"/>
+						<path d="M67 73h6v6h-6zm0 12h6v6h-6zm0 12h6v6h-6zm0 12h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M67 157v6h3a3 3 0 0 0 0-6" transform="rotate(180 70 160)"/>
+						<path d="M67 181v6h3a3 3 0 0 0 0-6m3-168v6h3a3 3 0 0 0 0-6m-3 12h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M73 67v6h6v-3a3 3 0 0 0-3-3" transform="rotate(-90 76 70)"/>
+						<path d="M73 73h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M73 85v6h6v-3a3 3 0 0 0-3-3" transform="rotate(90 76 88)"/>
+						<path d="M73 97v6h3a3 3 0 0 0 0-6m-3 12h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 12h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 12v6h3a3 3 0 0 0 0-6"/>
+						<path d="M73 169v6h3a3 3 0 0 0 0-6" transform="rotate(-90 76 172)"/>
+						<path d="M73 175v6h3a3 3 0 0 0 0-6" transform="rotate(90 76 178)"/>
+						<path d="M79 19v6h3a3 3 0 0 0 0-6" transform="rotate(-90 82 22)"/>
+						<path d="M79 25h6v6h-6zm0 6h6v6h-6zm0 12v6h3a3 3 0 0 0 0-6m-3 12v6h3a3 3 0 0 0 0-6m-3 12v6h6v-3a3 3 0 0 0-3-3"/>
+						<path d="M79 73v6h6v-3a3 3 0 0 0-3-3" transform="rotate(90 82 76)"/>
+						<path d="M79 91v6h3a3 3 0 0 0 0-6" transform="rotate(180 82 94)"/>
+						<path d="M79 109v6h3a3 3 0 0 0 0-6m-3 12v6h6v-3a3 3 0 0 0-3-3m-3 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M79 151v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 82 154)"/>
+						<circle cx="82" cy="184" r="3"/>
+						<path d="M85 31v6h6v-3a3 3 0 0 0-3-3"/>
+						<path d="M85 37v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 88 40)"/>
+						<circle cx="88" cy="52" r="3"/>
+						<path d="M85 91v6h6v-3a3 3 0 0 0-3-3"/>
+						<path d="M85 97v6h3a3 3 0 0 0 0-6" transform="rotate(90 88 100)"/>
+						<circle cx="88" cy="118" r="3"/>
+						<path d="M85 133v6h3a3 3 0 0 0 0-6m-3 18v6h3a3 3 0 0 0 0-6"/>
+						<path d="M85 163v6h3a3 3 0 0 0 0-6" transform="rotate(-90 88 166)"/>
+						<path d="M85 169v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 88 172)"/>
+						<path d="M91 13v6h3a3 3 0 0 0 0-6" transform="rotate(-90 94 16)"/>
+						<path d="M91 19h6v6h-6z"/>
+						<path d="M91 25v6h3a3 3 0 0 0 0-6" transform="rotate(90 94 28)"/>
+						<path d="M91 37v6h6v-3a3 3 0 0 0-3-3"/>
+						<path d="M91 43v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 94 46)"/>
+						<path d="M91 55v6h3a3 3 0 0 0 0-6" transform="rotate(180 94 58)"/>
+						<path d="M91 73v6h3a3 3 0 0 0 0-6" transform="rotate(180 94 76)"/>
+						<path d="M91 103v6h3a3 3 0 0 0 0-6" transform="rotate(-90 94 106)"/>
+						<path d="M91 109v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 94 112)"/>
+						<path d="M91 127v6h3a3 3 0 0 0 0-6" transform="rotate(180 94 130)"/>
+						<path d="M91 139v6h6v-3a3 3 0 0 0-3-3" transform="rotate(-90 94 142)"/>
+						<path d="M91 145v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 94 148)"/>
+						<path d="M91 169h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M91 181v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 94 184)"/>
+						<circle cx="100" cy="34" r="3"/>
+						<path d="M97 43h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 18h6v6h-6z"/>
+						<path d="M97 85v6h6v-3a3 3 0 0 0-3-3" transform="rotate(-90 100 88)"/>
+						<path d="M97 91v6h3a3 3 0 0 0 0-6" transform="rotate(90 100 94)"/>
+						<path d="M97 109h6v6h-6zm0 18v6h6v-3a3 3 0 0 0-3-3m-3 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M97 151v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 100 154)"/>
+						<path d="M97 169v6h6v-3a3 3 0 0 0-3-3m-3 6h6v6h-6z"/>
+						<path d="M97 181v6h6v-3a3 3 0 0 0-3-3" transform="rotate(90 100 184)"/>
+						<path d="M103 13v6h3a3 3 0 0 0 0-6" transform="rotate(180 106 16)"/>
+						<path d="M103 43h6v6h-6zm0 12h6v6h-6z"/>
+						<path d="M103 61v6h3a3 3 0 0 0 0-6" transform="rotate(90 106 64)"/>
+						<path d="M103 73v6h3a3 3 0 0 0 0-6m-3 12h6v6h-6z"/>
+						<path d="M103 103v6h6v-3a3 3 0 0 0-3-3" transform="rotate(-90 106 106)"/>
+						<path d="M103 109v6h6v-3a3 3 0 0 0-3-3" transform="rotate(90 106 112)"/>
+						<path d="M103 139h6v6h-6zm0 12h6v6h-6z"/>
+						<path d="M103 157v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 106 160)"/>
+						<path d="M103 175h6v6h-6zm6-162v6h6v-3a3 3 0 0 0-3-3m-3 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M109 55v6h6v-3a3 3 0 0 0-3-3" transform="rotate(90 112 58)"/>
+						<circle cx="112" cy="70" r="3"/>
+						<path d="M109 79v6h3a3 3 0 0 0 0-6" transform="rotate(-90 112 82)"/>
+						<path d="M109 85h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M109 121v6h6v-3a3 3 0 0 0-3-3" transform="rotate(-90 112 124)"/>
+						<path d="M109 127h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 12h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M109 163v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 112 166)"/>
+						<path d="M109 175h6v6h-6zm6-150v6h6v-3a3 3 0 0 0-3-3m-3 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6z"/>
+						<circle cx="118" cy="64" r="3"/>
+						<path d="M115 85h6v6h-6zm0 18h6v6h-6zm0 18h6v6h-6zm0 12h6v6h-6zm0 6h6v6h-6zm0 12h6v6h-6zm0 12v6h6v-3a3 3 0 0 0-3-3m-3 6h6v6h-6z"/>
+						<path d="M115 175v6h6v-3a3 3 0 0 0-3-3" transform="rotate(90 118 178)"/>
+						<circle cx="124" cy="16" r="3"/>
+						<path d="M121 31v6h6v-3a3 3 0 0 0-3-3m-3 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M121 55v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 124 58)"/>
+						<circle cx="124" cy="76" r="3"/>
+						<path d="M121 85h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M121 103v6h6v-3a3 3 0 0 0-3-3" transform="rotate(90 124 106)"/>
+						<path d="M121 115v6h6v-3a3 3 0 0 0-3-3" transform="rotate(-90 124 118)"/>
+						<path d="M121 121v6h6v-3a3 3 0 0 0-3-3" transform="rotate(90 124 124)"/>
+						<path d="M121 133h6v6h-6z"/>
+						<path d="M121 139v6h6v-3a3 3 0 0 0-3-3" transform="rotate(90 124 142)"/>
+						<path d="M121 151h6v6h-6z"/>
+						<path d="M121 157v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 124 160)"/>
+						<path d="M121 169h6v6h-6z"/>
+						<path d="M127 25v6h3a3 3 0 0 0 0-6" transform="rotate(180 130 28)"/>
+						<path d="M127 55h6v6h-6z"/>
+						<path d="M127 79v6h3a3 3 0 0 0 0-6" transform="rotate(-90 130 82)"/>
+						<path d="M127 85h6v6h-6z"/>
+						<path d="M127 109v6h3a3 3 0 0 0 0-6" transform="rotate(-90 130 112)"/>
+						<path d="M127 115h6v6h-6z"/>
+						<path d="M127 127v6h6v-3a3 3 0 0 0-3-3" transform="rotate(-90 130 130)"/>
+						<path d="M127 133h6v6h-6z"/>
+						<path d="M127 145v6h6v-3a3 3 0 0 0-3-3" transform="rotate(-90 130 148)"/>
+						<path d="M127 151h6v6h-6zm0 6h6v6h-6zm0 12h6v6h-6z"/>
+						<path d="M133 19v6h3a3 3 0 0 0 0-6" transform="rotate(-90 136 22)"/>
+						<path d="M133 25v6h6v-3a3 3 0 0 0-3-3" transform="rotate(90 136 28)"/>
+						<path d="M133 49v6h3a3 3 0 0 0 0-6" transform="rotate(-90 136 52)"/>
+						<path d="M133 55v6h6v-3a3 3 0 0 0-3-3" transform="rotate(90 136 58)"/>
+						<circle cx="136" cy="70" r="3"/>
+						<path d="M133 85v6h6v-3a3 3 0 0 0-3-3"/>
+						<path d="M133 91v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 136 94)"/>
+						<path d="M133 115h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M139 61v6h3a3 3 0 0 0 0-6" transform="rotate(180 142 64)"/>
+						<path d="M139 73v6h3a3 3 0 0 0 0-6" transform="rotate(-90 142 76)"/>
+						<path d="M139 79v6h3a3 3 0 0 0 0-6" transform="rotate(90 142 82)"/>
+						<path d="M139 91h6v6h-6z"/>
+						<path d="M139 109v6h6v-3a3 3 0 0 0-3-3" transform="rotate(-90 142 112)"/>
+						<path d="M139 115h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 24h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M139 181v6h3a3 3 0 0 0 0-6" transform="rotate(90 142 184)"/>
+						<path d="M145 61h6v6h-6z"/>
+						<path d="M145 67v6h3a3 3 0 0 0 0-6" transform="rotate(90 148 70)"/>
+						<path d="M145 91v6h3a3 3 0 0 0 0-6m-3 18v6h6v-3a3 3 0 0 0-3-3m-3 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6z"/>
+						<circle cx="148" cy="148" r="3"/>
+						<path d="M145 157h6v6h-6zm0 6h6v6h-6zm0 12h6v6h-6zm6-114v6h3a3 3 0 0 0 0-6"/>
+						<path d="M151 85v6h3a3 3 0 0 0 0-6" transform="rotate(180 154 88)"/>
+						<path d="M151 133h6v6h-6zm0 24h6v6h-6z"/>
+						<path d="M151 163v6h6v-3a3 3 0 0 0-3-3" transform="rotate(90 154 166)"/>
+						<path d="M151 175h6v6h-6z"/>
+						<path d="M151 181v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 154 184)"/>
+						<circle cx="160" cy="70" r="3"/>
+						<path d="M157 79v6h3a3 3 0 0 0 0-6" transform="rotate(-90 160 82)"/>
+						<path d="M157 85h6v6h-6z"/>
+						<path d="M157 97v6h6v-3a3 3 0 0 0-3-3" transform="rotate(-90 160 100)"/>
+						<path d="M157 103v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 160 106)"/>
+						<path d="M157 115v6h3a3 3 0 0 0 0-6" transform="rotate(-90 160 118)"/>
+						<path d="M157 121v6h3a3 3 0 0 0 0-6" transform="rotate(90 160 124)"/>
+						<path d="M157 133v6h6v-3a3 3 0 0 0-3-3m-3 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M157 169v6h3a3 3 0 0 0 0-6" transform="rotate(-90 160 172)"/>
+						<path d="M157 175h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M163 61v6h3a3 3 0 0 0 0-6" transform="rotate(180 166 64)"/>
+						<path d="M163 85v6h6v-3a3 3 0 0 0-3-3m-3 6h6v6h-6zm0 6h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M163 109v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 166 112)"/>
+						<path d="M163 139v6h3a3 3 0 0 0 0-6m-3 12h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M163 163v6h3a3 3 0 0 0 0-6" transform="rotate(90 166 166)"/>
+						<path d="M163 181h6v6h-6zm6-120v6h3a3 3 0 0 0 0-6"/>
+						<path d="M169 73v6h6v-3a3 3 0 0 0-3-3" transform="rotate(-90 172 76)"/>
+						<path d="M169 79v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 172 82)"/>
+						<path d="M169 109h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M169 121v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 172 124)"/>
+						<path d="M169 133v6h3a3 3 0 0 0 0-6" transform="rotate(180 172 136)"/>
+						<path d="M169 151v6h3a3 3 0 0 0 0-6"/>
+						<circle cx="172" cy="172" r="3"/>
+						<path d="M169 181v6h3a3 3 0 0 0 0-6"/>
+						<path d="M175 67v6h6v-3a3 3 0 0 0-3-3" transform="rotate(-90 178 70)"/>
+						<path d="M175 73h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M175 91v6h3a3 3 0 0 0 0-6" transform="rotate(180 178 94)"/>
+						<path d="M175 109v6h3a3 3 0 0 0 0-6m-3 12h6v6h-6zm0 12h6v6h-6z"/>
+						<path d="M175 139v6h6v-3a3 3 0 0 0-3-3" transform="rotate(180 178 142)"/>
+						<path d="M175 163v6h3a3 3 0 0 0 0-6" transform="rotate(180 178 166)"/>
+						<path d="M175 175v6h3a3 3 0 0 0 0-6" transform="rotate(180 178 178)"/>
+						<path d="M181 61v6h3a3 3 0 0 0 0-6" transform="rotate(-90 184 64)"/>
+						<path d="M181 67h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M181 79v6h6v-3a3 3 0 0 0-3-3" transform="rotate(90 184 82)"/>
+						<path d="M181 91v6h3a3 3 0 0 0 0-6"/>
+						<circle cx="184" cy="106" r="3"/>
+						<path d="M181 121v6h6v-3a3 3 0 0 0-3-3m-3 6h6v6h-6zm0 6h6v6h-6z"/>
+						<path d="M181 139v6h6v-3a3 3 0 0 0-3-3" transform="rotate(90 184 142)"/>
+						<path d="M181 163v6h3a3 3 0 0 0 0-6m-3 12v6h3a3 3 0 0 0 0-6"/>
+					</clipPath>
+					<clipPath id="e">
+						<path d="M13 28v12a15 15 0 0 0 15 15h12a15 15 0 0 0 15-15V28a15 15 0 0 0-15-15H28a15 15 0 0 0-15 15m15-9h12a9 9 0 0 1 9 9v12a9 9 0 0 1-9 9H28a9 9 0 0 1-9-9V28a9 9 0 0 1 9-9" clip-rule="evenodd"/>
+					</clipPath>
+					<clipPath id="f">
+						<circle cx="34" cy="34" r="9"/>
+					</clipPath>
+					<clipPath id="g">
+						<path d="M145 28v12a15 15 0 0 0 15 15h12a15 15 0 0 0 15-15V28a15 15 0 0 0-15-15h-12a15 15 0 0 0-15 15m15-9h12a9 9 0 0 1 9 9v12a9 9 0 0 1-9 9h-12a9 9 0 0 1-9-9V28a9 9 0 0 1 9-9" clip-rule="evenodd" transform="rotate(90 166 34)"/>
+					</clipPath>
+					<clipPath id="h">
+						<circle cx="166" cy="34" r="9" transform="rotate(90 166 34)"/>
+					</clipPath>
+					<clipPath id="i">
+						<path d="M13 160v12a15 15 0 0 0 15 15h12a15 15 0 0 0 15-15v-12a15 15 0 0 0-15-15H28a15 15 0 0 0-15 15m15-9h12a9 9 0 0 1 9 9v12a9 9 0 0 1-9 9H28a9 9 0 0 1-9-9v-12a9 9 0 0 1 9-9" clip-rule="evenodd" transform="rotate(-90 34 166)"/>
+					</clipPath>
+					<clipPath id="j">
+						<circle cx="34" cy="166" r="9" transform="rotate(-90 34 166)"/>
+					</clipPath>
+				</defs>
+				<path fill="rgba(0, 0, 0, 0)" d="M0 0h200v200H0z" clip-path="url(&quot;#svg1-clip-path-background-color&quot;)"/>
+				<path d="M0 0h200v200H0z" clip-path="url(&quot;#d&quot;)"/>
+				<path d="M13 13h42v42H13z" clip-path="url(&quot;#e&quot;)"/>
+				<path d="M25 25h18v18H25z" clip-path="url(&quot;#f&quot;)"/>
+				<path d="M145 13h42v42h-42z" clip-path="url(&quot;#g&quot;)"/>
+				<path d="M157 25h18v18h-18z" clip-path="url(&quot;#h&quot;)"/>
+				<path d="M13 145h42v42H13z" clip-path="url(&quot;#i&quot;)"/>
+				<path d="M25 157h18v18H25z" clip-path="url(&quot;#j&quot;)"/>
+			</g>
+		</g>
+	</g>
+</svg>
