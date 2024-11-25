@@ -6,6 +6,7 @@ h1,
 .h1 {
 	max-inline-size: none;
 	font-size: var(--font-size-8);
+	line-height: var(--font-lineheight-0);
 
 	& em {
 		color: var(--brand);
@@ -84,6 +85,7 @@ small,
 blockquote,
 li {
 	text-wrap: balance;
+	text-wrap: pretty;
 }
 
 h2,
@@ -96,7 +98,6 @@ h5,
 .h5,
 h6,
 .h6 {
-	color: var(--text-2);
 	max-inline-size: none;
 
 	& em {
@@ -130,9 +131,57 @@ a {
 	}
 }
 
+blockquote {
+	text-align: left;
+	max-inline-size: none;
+	inline-size: fit-content;
+	box-shadow: var(--shadow-4);
+	border: none;
+	border-radius: var(--radius-3);
+	padding-block: var(--size-5);
+	padding-inline: var(--size-8);
+	background: linear-gradient(
+		to right in oklab,
+		color-mix(in oklab, var(--brand), var(--surface-1) 50%) 0%,
+		0.5em,
+		color-mix(in oklab, var(--brand), var(--surface-1) 75%) 1.25em,
+		var(--surface-1) 4em
+	);
+
+	> h1 {
+		position: relative;
+	}
+	> ::before,
+	> ::after {
+		color: var(--text-2);
+	}
+	> :not(h1)::before,
+	> :not(h1)::after {
+		font-size: 2em;
+		line-height: 0.5;
+		vertical-align: middle;
+	}
+	> :only-child::before,
+	> :not(:last-child)::before {
+		content: '“';
+	}
+	> :not(h1)::before {
+		margin-inline-start: -0.375em;
+	}
+	> h1::before {
+		position: absolute;
+		top: 0;
+		right: 100%;
+	}
+	> :only-child::after,
+	> :not(:last-child)::after {
+		content: '”';
+	}
+}
+
 aside {
 	font-size: var(--font-size-3);
-	background-color: color-mix(in srgb, var(--brand), transparent 95%);
+	background-color: color-mix(in oklch, var(--brand), transparent 95%);
 	backdrop-filter: blur(0.15rem);
 	border: 1px solid var(--brand);
 	border-radius: var(--radius-round);

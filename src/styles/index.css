@@ -46,7 +46,7 @@
 		--surface-4: light-dark(var(--gray-3), var(--gray-12));
 
 		--text-1: light-dark(var(--gray-15), var(--gray-1));
-		--text-2: light-dark(var(--color-15), var(--color-1));
+		--text-2: light-dark(var(--color-10), var(--color-1));
 	}
 
 	:focus-visible {
@@ -148,6 +148,25 @@
 				opacity: 100%;
 				padding-block: var(--size-3);
 			}
+		}
+	}
+
+	img {
+		max-block-size: 90lvb;
+	}
+
+	figure {
+		max-block-size: 90lvb;
+		grid-template-rows: minmax(0, 1fr) auto;
+		justify-items: start;
+		> * {
+			inline-size: 100%;
+			max-block-size: 100%;
+		}
+		& figcaption {
+			font-style: italic;
+			max-inline-size: none;
+			text-align: left;
 		}
 	}
 }

@@ -30,10 +30,17 @@ if (entry.data.multilineTitle) {
 	noJustifyItems={entry.data.noJustifyItems}
 	renderBlocking={entry.data.renderBlocking}
 >
-	<h1 set:html={title} class:list={[{
-		'h0': entry.data.bigTitle,
-		'h2': entry.data.smallTitle,
-		'visually-hidden': entry.data.visuallyHiddenTitle,
-	}]} />
+	{entry.data.multilineTitle
+		? <div set:html={title} class:list={[{
+				'h0': entry.data.bigTitle,
+				'h2': entry.data.smallTitle,
+				'visually-hidden': entry.data.visuallyHiddenTitle,
+			}]} />
+		: <h1 set:html={title} class:list={[{
+				'h0': entry.data.bigTitle,
+				'h2': entry.data.smallTitle,
+				'visually-hidden': entry.data.visuallyHiddenTitle,
+			}]} />
+	}
 	<div class={entry.data.noFlow ? "content" : "content flow"}><Content /></div>
 </Layout>
