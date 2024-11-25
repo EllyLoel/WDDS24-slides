@@ -37,7 +37,7 @@ const safeTitle = sanitizeHtml(title, {
 			});
 		</script>
 		<script type="module">
-			const extractSlideNumberFromPath = (pathname) => /\d(\.\d)*/.exec(pathname)?.at(0);
+			const extractSlideNumberFromPath = (pathname) => /\d{1,3}(\.\d)*/.exec(pathname)?.at(0);
 
 			const determineTransitionType = (fromNavigationEntry, toNavigationEntry) => {
 				const fromSlideNumber = extractSlideNumberFromPath(new URL(fromNavigationEntry.url).pathname);

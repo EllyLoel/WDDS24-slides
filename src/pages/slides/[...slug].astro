@@ -31,6 +31,7 @@ if (entry.data.multilineTitle) {
 	renderBlocking={entry.data.renderBlocking}
 >
 	<h1 set:html={title} class:list={[{
+		'h0': entry.data.bigTitle,
 		'h2': entry.data.smallTitle,
 		'visually-hidden': entry.data.visuallyHiddenTitle,
 	}]} />

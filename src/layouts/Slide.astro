@@ -44,7 +44,7 @@ const nextSlide =
 				location = event.data.location;
 			}
 			if (event.data.slide) {
-				location = `/slides/${slides[event.data.slide - 1].slug}/`;
+				location = `/slides/${slides[event.data.slide].slug}/`;
 			}
 		});
 	}

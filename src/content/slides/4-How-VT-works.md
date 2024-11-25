@@ -1,5 +1,6 @@
 ---
-title: What's the difference?
+title: How does it work?
+bigTitle: true
 ---
 
 <br>
