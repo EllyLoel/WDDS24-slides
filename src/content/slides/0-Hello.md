@@ -4,7 +4,6 @@ notes: |
   Hi, I’m Elly Loel, my pronouns are she/her.
   Quick self description: I’m a tall white trans woman with blonde hair.
 animation: none
-align: left
 ---
 
 ## 🎞️ [elly.to/wdds24-slides](https://elly.to/wdds24-slides)
@@ -29,6 +28,9 @@ align: left
         display: block;
         color: var(--brand);
       }
+    }
+    .content {
+      font-size: inherit;
     }
     .me {
       max-inline-size: 400px;
@@ -55,9 +57,10 @@ align: left
     .content {
       display: grid;
       inline-size: fit-content;
+      font-size: inherit;
       & img {
         margin-block-start: var(--size-7);
-        inline-size: 30vi;
+        inline-size: 29vi;
       }
     }
     .me {

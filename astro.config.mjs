@@ -6,6 +6,9 @@ import {
 } from '@shikijs/transformers';
 
 export default defineConfig({
+	server: {
+		port: 1312,
+	},
 	markdown: {
 		shikiConfig: {
 			themes: {

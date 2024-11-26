@@ -3,22 +3,23 @@
 }
 
 .browser-support {
-	font-size: 2rem;
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(3, auto);
 	gap: var(--size-relative-5);
 	justify-content: center;
 
 	details:has(&) {
-		inline-size: 42ch;
-		margin-inline: auto;
+		inline-size: 29ch;
 	}
 
 	> p {
 		--color-hue: var(--hue-green);
 		color: light-dark(var(--color-6), var(--color-4));
-		display: flex;
+		inline-size: fit-content;
+		display: grid;
+		grid-template-columns: repeat(2, auto);
+		gap: var(--size-relative-5);
 		align-items: center;
-		gap: var(--size-relative-3);
 		font-weight: var(--font-weight-7);
 
 		&:not(:first-child) {
@@ -28,12 +29,8 @@
 	}
 
 	& img {
-		display: inline-block;
-		font-size: var(--font-size-5);
-		block-size: var(--size-relative-7);
+		block-size: 1.5em;
 		aspect-ratio: var(--ratio-square);
-		object-fit: contain;
-		object-position: center;
 
 		&:not(:first-of-type) {
 			block-size: 0.8em;

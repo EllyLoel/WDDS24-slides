@@ -58,11 +58,17 @@
 	html {
 		background-color: var(--surface-1);
 
-		/* This just means that it's a slide and not the presenter view */
-		&[data-view-transition] {
+		&.presenter-view {
+			scroll-padding: 4rem;
+		}
+
+		&:not(.presenter-view) {
 			--s: 15vi;
 			--c1: var(--surface-1);
-			--c2: var(--surface-2);
+			--c2: light-dark(
+				color-mix(in oklch, var(--surface-1), var(--surface-2) 50%),
+				var(--surface-2)
+			);
 
 			--_g: var(--c1) 0% 5%, var(--c2) 6% 15%, var(--c1) 16% 25%,
 				var(--c2) 26% 35%, var(--c1) 36% 45%, var(--c2) 46% 55%,
@@ -166,7 +172,6 @@
 		& figcaption {
 			font-style: italic;
 			max-inline-size: none;
-			text-align: left;
 		}
 	}
 }

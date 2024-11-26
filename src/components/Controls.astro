@@ -8,7 +8,7 @@ const { prevHref, nextHref } = Astro.props;
 ---
 
 <nav class="controls">
-	{prevHref && (<a href={prevHref}>
+	{prevHref && (<a href={prevHref} class="prev">
 		<span class="visually-hidden">Previous slide</span>
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
 			<!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -18,7 +18,7 @@ const { prevHref, nextHref } = Astro.props;
 			</path>
 		</svg>
 	</a>)}
-	{nextHref && (<a href={nextHref}>
+	{nextHref && (<a href={nextHref} class="next">
 		<span class="visually-hidden">Next slide</span>
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
 			<!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -56,21 +56,33 @@ const { prevHref, nextHref } = Astro.props;
 	@layer base {
 		.controls {
 			margin: var(--size-fluid-3);
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-template-areas: "prev next";
+
+			.prev {
+				grid-area: prev;
+			}
+			.next {
+				grid-area: next;
+			}
+
+			> a {
+				align-items: center;
+				border-radius: var(--radius-round);
+				color: var(--text-2);
+				display: flex;
+				margin: 0;
+				padding: var(--size-2);
+
+				> svg {
+					fill: currentColor;
+					aspect-ratio: var(--ratio-square);
+					inline-size: var(--size-7);
+				}
+			}
+
 		}
 	
-		.controls > a {
-			align-items: center;
-			border-radius: var(--radius-round);
-			color: var(--text-2);
-			display: flex;
-			margin: 0;
-			padding: var(--size-2);
-		}
-	
-		.controls > a > svg {
-			fill: currentColor;
-			aspect-ratio: var(--ratio-square);
-			inline-size: var(--size-7);
-		}
 	}
 </style>

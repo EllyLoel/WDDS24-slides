@@ -110,11 +110,18 @@ h6,
 }
 
 @media (width > 720px) {
+	.content {
+		font-size: var(--font-size-5);
+	}
+
 	p,
 	blockquote,
+	ul,
+	ol,
+	dl,
 	li,
 	pre {
-		font-size: var(--font-size-4);
+		font-size: inherit;
 	}
 }
 
@@ -132,7 +139,6 @@ a {
 }
 
 blockquote {
-	text-align: left;
 	max-inline-size: none;
 	inline-size: fit-content;
 	box-shadow: var(--shadow-4);
@@ -180,6 +186,7 @@ blockquote {
 }
 
 aside {
+	inline-size: fit-content;
 	font-size: var(--font-size-3);
 	background-color: color-mix(in oklch, var(--brand), transparent 95%);
 	backdrop-filter: blur(0.15rem);

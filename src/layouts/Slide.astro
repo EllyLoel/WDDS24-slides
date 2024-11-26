@@ -6,12 +6,11 @@ import { getCollection } from 'astro:content';
 export interface Props {
 	title: string;
 	animation?: 'page' | 'element' | 'none' | string;
-	align?: 'center' | 'left' | string;
 	noJustifyItems?: boolean;
 	renderBlocking?: string | string[];
 }
 
-const { title, animation, align, noJustifyItems, renderBlocking } = Astro.props;
+const { title, animation, noJustifyItems, renderBlocking } = Astro.props;
 
 const slides = await getCollection('slides');
 const currentSlideIndex = slides.findIndex(
@@ -20,10 +19,10 @@ const currentSlideIndex = slides.findIndex(
 const prevSlide =
 	currentSlideIndex <= 0 ? null : slides.at(currentSlideIndex - 1);
 const nextSlide =
-	currentSlideIndex >= slides.length ? null : slides.at(currentSlideIndex + 1);
+	currentSlideIndex >= slides.length - 1 ? null : slides.at(currentSlideIndex + 1);
 ---
 
-<Layout title={title} animation={animation} align={align} renderBlocking={renderBlocking}>
+<Layout title={title} animation={animation} renderBlocking={renderBlocking}>
 	<main style={noJustifyItems && "justify-items: unset;"}>
 		<slot />
 	</main>
@@ -74,21 +73,7 @@ const nextSlide =
 			max-inline-size: 100svi;
 			grid-template-columns: calc(100svi - (var(--size-8) * 2 ));
 			container-type: inline-size;
-
-			[data-align="center"] & {
-				text-align: center;
-				place-content: center;
-				justify-items: center;
-
-				& pre {
-					justify-self: center;
-				}
-			}
-
-			[data-align="left"] & {
-				align-content: center;
-				text-align: left;
-			}
+			align-content: center;
 
 			@media (width < 50em) {
 				gap: var(--size-5);

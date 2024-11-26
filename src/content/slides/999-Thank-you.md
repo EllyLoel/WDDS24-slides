@@ -4,7 +4,6 @@ notes: |
   Thank you so much for listening everyone!
   You can scan that QR code or head to the link ellyloel.com to head to my website where you can also find links to all my other socials.
 animation: none
-align: left
 ---
 
 ## 🔗 [ellyloel.com](https://ellyloel.com)
@@ -27,6 +26,9 @@ align: left
     }
   }
   @container (inline-size < 50em) {
+    .content {
+      font-size: inherit;
+    }
     img {
       max-inline-size: 400px;
     }
@@ -50,6 +52,7 @@ align: left
       --flow-space: 0;
       display: grid;
       inline-size: fit-content;
+      font-size: inherit;
       & img {
         margin-block-start: 0;
         inline-size: 26vi;
