@@ -3,5 +3,6 @@ title: Named view transitions
 ---
 
 ```css
-view-transition-name
+/* [!code word:your-vt-name] */
+view-transition-name: your-vt-name;
 ```
