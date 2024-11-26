@@ -16,7 +16,8 @@ html {
 			block-size: 100%;
 		}
 
-		& h1:nth-child(1 of main h1) {
+		& h1:nth-child(1 of main:not(:has(.h1)) h1),
+		& .h1:nth-child(1 of main:not(:has(h1)) .h1) {
 			view-transition-name: slide-title;
 		}
 
@@ -24,8 +25,18 @@ html {
 			view-transition-name: content;
 		}
 
-		& :is(h2, .h2):only-of-type {
-			view-transition-name: slide-subtitle;
+		& h2:nth-child(1 of .content:not(:has(.h2)) > h2),
+		& .h2:nth-child(1 of .content:not(:has(h2)) > .h2),
+		& h2:nth-child(1 of .content:not(:has(.h2)) > div:first-of-type > h2),
+		& .h2:nth-child(1 of .content:not(:has(h2)) > div:first-of-type > .h2) {
+			view-transition-name: first-subtitle;
+		}
+
+		& h2:nth-child(2 of .content:not(:has(.h2)) > h2),
+		& .h2:nth-child(2 of .content:not(:has(h2)) > .h2),
+		& h2:nth-child(2 of .content:not(:has(.h2)) > div:nth-of-type(2) > h2),
+		& .h2:nth-child(2 of .content:not(:has(h2)) > div:nth-of-type(2) > .h2) {
+			view-transition-name: second-subtitle;
 		}
 
 		& pre:nth-child(1 of .content pre) {
@@ -36,8 +47,12 @@ html {
 			view-transition-name: second-snippet;
 		}
 
-		& img {
-			view-transition-name: slide-image;
+		& img:nth-child(1 of div:first-of-type > p > img) {
+			view-transition-name: first-image;
+		}
+
+		& img:nth-child(2 of div:nth-of-type(2) > p > img) {
+			view-transition-name: second-image;
 		}
 
 		& .controls {

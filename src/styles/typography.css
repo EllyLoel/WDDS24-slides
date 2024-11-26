@@ -1,5 +1,12 @@
 .h0 {
-	font-size: calc(var(--font-size-8) * 2);
+	&,
+	& h1 {
+		font-size: calc(var(--font-size-8) * 2);
+	}
+
+	& p {
+		font-size: var(--font-size-5);
+	}
 }
 
 h1,
@@ -38,7 +45,8 @@ h5,
 }
 
 @container (inline-size < 50em) {
-	.h0 {
+	.h0,
+	.h0 h1 {
 		font-size: var(--font-size-6);
 	}
 
