@@ -3,6 +3,7 @@ title: Hi, I'm <span>Elly Loel</span> <small>(she/her)</small>
 notes: |
   Hi, I’m Elly Loel, my pronouns are she/her.
   Quick self description for any blind or low vision people: I’m a tall white trans woman with blonde hair.
+  Like Miriam mentioned earlier, I was also going to have my outfit match my slides but unfortunately spilling egg yolk on my outfit means that isn't happening.
 animation: none
 ---
 
