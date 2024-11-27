@@ -2,7 +2,7 @@
 title: Hi, I'm <span>Elly Loel</span> <small>(she/her)</small>
 notes: |
   Hi, I’m Elly Loel, my pronouns are she/her.
-  Quick self description: I’m a tall white trans woman with blonde hair.
+  Quick self description for any blind or low vision people: I’m a tall white trans woman with blonde hair.
 animation: none
 ---
 
