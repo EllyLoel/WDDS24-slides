@@ -20,6 +20,8 @@ const prevSlide =
 	currentSlideIndex <= 0 ? null : slides.at(currentSlideIndex - 1);
 const nextSlide =
 	currentSlideIndex >= slides.length - 1 ? null : slides.at(currentSlideIndex + 1);
+
+const AstroURL = Astro?.url?.href;
 ---
 
 <Layout title={title} animation={animation} renderBlocking={renderBlocking}>
@@ -34,15 +36,15 @@ const nextSlide =
 	</footer>
 </Layout>
 
-<script is:inline define:vars={{ slides }}>
+<script is:inline define:vars={{ slides, AstroURL }}>
 	if (window.self === window.top) {
 		const bc = new BroadcastChannel('slides');
 		bc.postMessage({ location: location.href });
 		bc.addEventListener('message', (event) => {
-			if (event.data.location && event.data.location !== Astro.url.href) {
+			if (event.data?.location !== AstroURL) {
 				location = event.data.location;
 			}
-			if (event.data.slide) {
+			if (event.data?.slide !== undefined) {
 				location = `/slides/${slides[event.data.slide].slug}/`;
 			}
 		});
