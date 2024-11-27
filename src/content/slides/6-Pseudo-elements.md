@@ -1,7 +1,7 @@
 ---
 title: Pseudo-elements
 notes: |
-  - `::view-transition`: The root of the view transitions overlay, which contains all view transitions and sits over the top of all other page content. This is useful if you want to set a background color for the transition.
+  - `::view-transition`: The root of the view transitions overlay, which contains all view transitions and sits over the top of all other page content.
   - `::view-transition-group()`: The root of a single view transition.
   - `::view-transition-image-pair()`: The container for a view transition's old and new views — before and after the transition.
   - `::view-transition-old()`: A static snapshot of the old view, before the transition.
