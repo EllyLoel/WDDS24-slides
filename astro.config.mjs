@@ -9,6 +9,13 @@ export default defineConfig({
 	server: {
 		port: 1312,
 	},
+	prefetch: {
+		prefetchAll: true,
+		defaultStrategy: 'viewport',
+	},
+	experimental: {
+		clientPrerender: true,
+	},
 	markdown: {
 		shikiConfig: {
 			themes: {
